@@ -41,6 +41,10 @@ let startTime = 9000;
 let remainingTime = 0; 
 let timerInterval = '';
 
+//Score Variables
+let totalCorrect; 
+let totalIncorrect; 
+
 //Document Timer Elements
 let timerVar = document.querySelector("#timer"); 
 let minOutput = document.querySelector("#min"); 
@@ -208,12 +212,14 @@ function checkAnswer(event) {
     //console.log(event.target.getAttribute("correct-value") === event.target.innerText); 
 
     if(event.target.getAttribute("correct-value") === event.target.innerText) {
-        console.log("correct"); 
+        totalCorrect++; 
+        console.log(`total correct: ${totalCorrect}`); 
 
         //generate question again here? 
         generateQuestion(); 
     } else {
-        console.log("incorrect"); 
+        totalIncorrect++; 
+        console.log(`total incorrect: ${totalIncorrect}`); 
 
         //Reduce the time left over by 5 seconds. 
         remainingTime -= 500; 
@@ -227,6 +233,8 @@ function checkAnswer(event) {
 
 //Initiate the beginning of the game. 
 function init() {
+    totalCorrect = 0; 
+    totalIncorrect = 0; 
     contentContainer.innerHTML = '<button id="start-timer" class="btn btn-primary btn-lg" display="initial">Start Timer</button>'; 
     startButton = document.querySelector("#start-timer");
     startButton.addEventListener("click", startGame);
