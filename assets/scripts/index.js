@@ -47,6 +47,7 @@ let minOutput = document.querySelector("#min");
 let secOutput = document.querySelector("#sec"); 
 let hundredthsecOutput = document.querySelector("#hundredthsec"); 
 
+//Set up the beginning of the game. 
 init(); 
 
 function setUpTimer() {
@@ -154,6 +155,9 @@ function endGame() {
 
 function generateQuestion() {
 
+    //Clear the question box.
+    questionBox.innerHTML = ""; 
+
     //Determine which question is selected.
     let randomNumber = Math.floor(Math.random() * questionSet.length); 
     let selectedQuestion = questionSet[randomNumber]; 
@@ -172,10 +176,23 @@ function generateQuestion() {
         let optionKey = `option${thisOption}`; 
         let option = document.createElement("div"); 
         option.classList.add("answer-option"); 
-        option.innerText = selectedQuestion[optionKey]; //brackets?
+        
+        //check if this is the correct answer 
+        if(selectedQuestion[optionKey] === selectedQuestion.answer) {
+            //option.classList.add("is-correct"); 
+            option.setAttribute("correct-value", `${selectedQuestion.answer}`); 
+        } else {
+            //option.classList.add("is-incorrect"); 
+            option.setAttribute("correct-value", `${selectedQuestion.answer}`)
+        }
+
+        //Make the button clickable.
+        option.addEventListener("click", checkAnswer); 
+
+        //Set the inner text of the option div and put it into the answer box. 
+        option.innerText = selectedQuestion[optionKey]; 
         answerBox.appendChild(option); 
     }
-
 
     //Add the question to the question box.
     questionBox.appendChild(question); 
@@ -183,10 +200,32 @@ function generateQuestion() {
     //Add the answer box to the question box.
     questionBox.appendChild(answerBox); 
 
-
-    
 }
 
+function checkAnswer(event) {
+    //console.log("Correct answer: " + event.target.getAttribute("correct-value")); 
+    //console.log("This answer: " + event.target.innerText); 
+    //console.log(event.target.getAttribute("correct-value") === event.target.innerText); 
+
+    if(event.target.getAttribute("correct-value") === event.target.innerText) {
+        console.log("correct"); 
+
+        //generate question again here? 
+        generateQuestion(); 
+    } else {
+        console.log("incorrect"); 
+
+        //Reduce the time left over by 5 seconds. 
+        remainingTime -= 500; 
+
+        //make this one red and inactive 
+        event.target.removeEventListener("click", checkAnswer); 
+        event.target.classList.add("is-incorrect"); 
+    }
+
+}
+
+//Initiate the beginning of the game. 
 function init() {
     contentContainer.innerHTML = '<button id="start-timer" class="btn btn-primary btn-lg" display="initial">Start Timer</button>'; 
     startButton = document.querySelector("#start-timer");

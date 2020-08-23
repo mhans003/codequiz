@@ -2,6 +2,20 @@
     font-family: 'Fira Mono', monospace;
 }
 
+.navbar {
+    font-size: 1.2rem; 
+}
+
+.navbar-brand {
+    font-size: 1.5rem; 
+    color: rgba(50,50,100,1.0) !important; 
+}
+
+.btn-primary {
+    background-color: rgba(50,50,100,1.0) !important; 
+    border-color: rgba(50,50,100,1.0) !important; 
+}
+
 #main-container {
     margin-top: 5%; 
 }
@@ -37,4 +51,20 @@
     font-weight: bold; 
 
     box-shadow: 6px 6px 6px rgba(100,100,150,1.0);
+}
+
+.is-incorrect {
+    text-decoration: line-through;
+    background-color: rgba(250,100,100,1.0); 
+}
+
+.is-incorrect:active, .is-incorrect:hover {
+    background-color: rgba(250,100,100,1.0) !important; 
+}
+
+@media screen and (max-width: 400px) {
+    .navbar-brand, #navbarSupportedContent {
+        margin-right: auto !important;
+        margin-left: auto !important;  
+    }
 }
