@@ -34,7 +34,8 @@ const startButton = document.querySelector("#start-timer");
 startButton.addEventListener("click", startGame); 
 
 //Timer Variables 
-let startTime = 60; 
+//let startTime = 60; 
+let startTime = 9000; 
 let remainingTime = 0; 
 let timerInterval = '';
 
@@ -42,6 +43,7 @@ let timerInterval = '';
 let timerVar = document.querySelector("#timer"); 
 let minOutput = document.querySelector("#min"); 
 let secOutput = document.querySelector("#sec"); 
+let millisecOutput = document.querySelector("#millisec"); 
 
 function setUpTimer() {
     //Prepare the timer for the first time.
@@ -56,15 +58,18 @@ function setUpTimer() {
     //Display the minutes and seconds for the first time.
     minOutput.innerHTML = getMinutes(); 
     secOutput.innerHTML = getSeconds(); 
+    millisecOutput.innerHTML = getMilliseconds(); 
 
     //Set the interval for every second.
-    timerInterval = setInterval(countDown, 1000); 
+    //timerInterval = setInterval(countDown, 1000); 
+    timerInterval = setInterval(countDown, 10); 
 }
 
 //Access the minutes in the appropriate format using the remaining seconds left. 
 function getMinutes() {
     //Convert seconds to minutes and disregard the fractional part of the quotient by rounding down.
-    let minutes = Math.floor(remainingTime / 60); 
+    //let minutes = Math.floor(remainingTime / 60); 
+    let minutes = Math.floor(remainingTime / 6000); 
 
     //See if an extra zero is needed for formatting. 
     if(minutes < 10) { 
@@ -78,13 +83,26 @@ function getMinutes() {
 //Access the seconds in the appropriate format using the remaining seconds left.
 function getSeconds() {
     //Find the number of seconds left within the current minute by finding the remainder when converting seconds to minutes using division.
-    let seconds = remainingTime % 60; 
+    //let seconds = remainingTime % 60; 
+    let seconds = (Math.floor(remainingTime / 100) % 60); 
 
     //See if an extra zero is needed for formatting. 
     if(seconds < 10) {
         return `0${seconds}`;
     } else {
         return seconds; 
+    }
+}
+
+function getMilliseconds() {
+    //let milliseconds = remainingTime % 1000; 
+    let milliseconds = Math.floor(remainingTime % 100); 
+
+    //See if extra zeros are needed for formatting.
+    if(milliseconds < 10) {
+        return `0${milliseconds}`; 
+    } else {
+        return milliseconds; 
     }
 }
 
@@ -95,6 +113,7 @@ function countDown() {
     //Output the new minutes and seconds in the appropriate format.
     minOutput.innerHTML = getMinutes(); 
     secOutput.innerHTML = getSeconds(); 
+    millisecOutput.innerHTML = getMilliseconds(); 
 
     //If the timer has reached zero, end it. 
     if(remainingTime < 1) {
