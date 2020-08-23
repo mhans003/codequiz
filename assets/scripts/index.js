@@ -3,35 +3,37 @@
 const questionSet = [
     {
         question: "Example Question: Which is red?",
-        a: "a. Red",
-        b: "b. Blue",
-        c: "c. Yellow",
-        d: "d. Purple",
-        answer: "a. Red"
+        option0: "a. Red",
+        option1: "b. Gray",
+        option2: "c. Tan",
+        option3: "d. Pink",
+        answer: "a. Red",
+        optionNumber: 4
     },
     {
         question: "Example Question: Which is yellow?",
-        a: "a. Red",
-        b: "b. Blue",
-        c: "c. Yellow",
-        d: "d. Purple",
-        answer: "c. Yellow"
+        option0: "a. Red",
+        option1: "b. Orange",
+        option2: "c. Yellow",
+        option3: "d. White",
+        answer: "c. Yellow",
+        optionNumber: 4
     },
     {
         question: "Example Question: Which is blue?",
-        a: "a. Red",
-        b: "b. Blue",
-        c: "c. Yellow",
-        d: "d. Purple",
-        answer: "b. Blue"
+        option0: "a. Orange",
+        option1: "b. Blue",
+        option2: "c. Pink",
+        option3: "d. Black",
+        answer: "b. Blue",
+        optionNumber: 4
     }
 ];
 
 //Page Elements
-const startButton = document.querySelector("#start-timer");
-
-//Events
-startButton.addEventListener("click", startGame); 
+const contentContainer = document.querySelector("#content-container");  
+let questionBox = document.querySelector("#question-box"); 
+let startButton; 
 
 //Timer Variables 
 //Set a number of 1/100 seconds.
@@ -45,14 +47,15 @@ let minOutput = document.querySelector("#min");
 let secOutput = document.querySelector("#sec"); 
 let hundredthsecOutput = document.querySelector("#hundredthsec"); 
 
+init(); 
+
 function setUpTimer() {
     //Prepare the timer for the first time.
 
     //Set the remaining time initially to the starting time.
     remainingTime = startTime; 
 
-    //Hide start button after timer starts and display the timer. 
-    startButton.style.display = "none";
+    //Display the timer. 
     timerVar.style.display = "initial";
 
     //Display the minutes and seconds for the first time.
@@ -132,7 +135,11 @@ function clearTimer() {
 //GAME FUNCTIONS
 
 function startGame() {
+    startButton.style.display = "none";
     setUpTimer(); 
+    
+    //Generate the first question
+    generateQuestion(); 
 }
 
 function endGame() {
@@ -144,3 +151,46 @@ function endGame() {
 
     //When retrieving, JSON.parse to turn back to object 
 }
+
+function generateQuestion() {
+
+    //Determine which question is selected.
+    let randomNumber = Math.floor(Math.random() * questionSet.length); 
+    let selectedQuestion = questionSet[randomNumber]; 
+
+    //Generate question div.
+    let question = document.createElement("div");
+    question.classList.add("question"); 
+    question.innerText = selectedQuestion.question; 
+
+    //Generate answer box. 
+    let answerBox = document.createElement("div"); 
+    answerBox.classList.add("container");
+    
+    //Generate each option and add them to the answer box. 
+    for(let thisOption = 0; thisOption < selectedQuestion.optionNumber; thisOption++) {
+        let optionKey = `option${thisOption}`; 
+        let option = document.createElement("div"); 
+        option.classList.add("answer-option"); 
+        option.innerText = selectedQuestion[optionKey]; //brackets?
+        answerBox.appendChild(option); 
+    }
+
+
+    //Add the question to the question box.
+    questionBox.appendChild(question); 
+
+    //Add the answer box to the question box.
+    questionBox.appendChild(answerBox); 
+
+
+    
+}
+
+function init() {
+    contentContainer.innerHTML = '<button id="start-timer" class="btn btn-primary btn-lg" display="initial">Start Timer</button>'; 
+    startButton = document.querySelector("#start-timer");
+    startButton.addEventListener("click", startGame);
+}
+
+//Events
