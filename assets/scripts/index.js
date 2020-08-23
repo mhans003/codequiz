@@ -34,7 +34,7 @@ const startButton = document.querySelector("#start-timer");
 startButton.addEventListener("click", startGame); 
 
 //Timer Variables 
-//let startTime = 60; 
+//Set a number of 1/100 seconds.
 let startTime = 9000; 
 let remainingTime = 0; 
 let timerInterval = '';
@@ -43,7 +43,7 @@ let timerInterval = '';
 let timerVar = document.querySelector("#timer"); 
 let minOutput = document.querySelector("#min"); 
 let secOutput = document.querySelector("#sec"); 
-let millisecOutput = document.querySelector("#millisec"); 
+let hundredthsecOutput = document.querySelector("#hundredthsec"); 
 
 function setUpTimer() {
     //Prepare the timer for the first time.
@@ -58,17 +58,15 @@ function setUpTimer() {
     //Display the minutes and seconds for the first time.
     minOutput.innerHTML = getMinutes(); 
     secOutput.innerHTML = getSeconds(); 
-    millisecOutput.innerHTML = getMilliseconds(); 
+    hundredthsecOutput.innerHTML = getHundredthseconds(); 
 
-    //Set the interval for every second.
-    //timerInterval = setInterval(countDown, 1000); 
+    //Set the interval for every 1/100 second.
     timerInterval = setInterval(countDown, 10); 
 }
 
-//Access the minutes in the appropriate format using the remaining seconds left. 
+//Access the minutes in the appropriate format using the remaining time left. 
 function getMinutes() {
-    //Convert seconds to minutes and disregard the fractional part of the quotient by rounding down.
-    //let minutes = Math.floor(remainingTime / 60); 
+    //Convert hundredth seconds to minutes and disregard the fractional part of the quotient by rounding down. 
     let minutes = Math.floor(remainingTime / 6000); 
 
     //See if an extra zero is needed for formatting. 
@@ -80,10 +78,9 @@ function getMinutes() {
     
 }
 
-//Access the seconds in the appropriate format using the remaining seconds left.
+//Access the seconds in the appropriate format using the remaining time left.
 function getSeconds() {
-    //Find the number of seconds left within the current minute by finding the remainder when converting seconds to minutes using division.
-    //let seconds = remainingTime % 60; 
+    //Convert remaining hundredth seconds to seconds, then find the number of seconds within the current minute by accessing the remainder of the unit conversion from seconds to minutes.
     let seconds = (Math.floor(remainingTime / 100) % 60); 
 
     //See if an extra zero is needed for formatting. 
@@ -94,15 +91,16 @@ function getSeconds() {
     }
 }
 
-function getMilliseconds() {
-    //let milliseconds = remainingTime % 1000; 
-    let milliseconds = Math.floor(remainingTime % 100); 
+//Access the number of hundredth seconds in the appropriate format using the remaining time left. 
+function getHundredthseconds() { 
+    //Take the remaining time of hundredth seconds and find the number of hundredth seconds within the current second by accessing the remainder of the unit conversion from hundredth seconds to seconds.
+    let hundredthseconds = Math.floor(remainingTime % 100); 
 
-    //See if extra zeros are needed for formatting.
-    if(milliseconds < 10) {
-        return `0${milliseconds}`; 
+    //See if an extra zero are needed for formatting.
+    if(hundredthseconds < 10) {
+        return `0${hundredthseconds}`; 
     } else {
-        return milliseconds; 
+        return hundredthseconds; 
     }
 }
 
@@ -113,7 +111,7 @@ function countDown() {
     //Output the new minutes and seconds in the appropriate format.
     minOutput.innerHTML = getMinutes(); 
     secOutput.innerHTML = getSeconds(); 
-    millisecOutput.innerHTML = getMilliseconds(); 
+    hundredthsecOutput.innerHTML = getHundredthseconds(); 
 
     //If the timer has reached zero, end it. 
     if(remainingTime < 1) {
