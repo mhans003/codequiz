@@ -54,12 +54,15 @@
 }
 
 .is-incorrect {
+    color: #fff !important; 
     text-decoration: line-through;
-    background-color: rgba(250,100,100,1.0); 
+    background-color: rgba(250,70,70,1.0); 
+    border-color: rgba(250,100,100,1.0) !important; 
+    box-shadow: 6px 6px 6px rgba(150,50,50,1.0) !important;
 }
 
 .is-incorrect:active, .is-incorrect:hover {
-    background-color: rgba(250,100,100,1.0) !important; 
+    background-color: rgba(250,70,70,1.0) !important; 
 }
 
 @media screen and (max-width: 400px) {
