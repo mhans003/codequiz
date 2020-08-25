@@ -2,6 +2,8 @@
 const contentContainer = document.querySelector("#content-container");  
 let questionBox = document.querySelector("#question-box"); 
 let startButton; 
+const correctScore = document.querySelector("#correct"); 
+const incorrectScore = document.querySelector("#incorrect"); 
 
 //Timer Variables 
 //Set a number of 1/100 seconds.
@@ -181,13 +183,15 @@ function checkAnswer(event) {
 
     if(event.target.getAttribute("correct-value") === event.target.innerText) {
         totalCorrect++; 
-        console.log(`total correct: ${totalCorrect}`); 
+        //console.log(`total correct: ${totalCorrect}`); 
 
         //generate question again here? 
+         
         generateQuestion(); 
     } else {
         totalIncorrect++; 
-        console.log(`total incorrect: ${totalIncorrect}`); 
+        //console.log(`total incorrect: ${totalIncorrect}`); 
+        
 
         //Reduce the time left over by 5 seconds. 
         remainingTime -= 500; 
@@ -196,7 +200,13 @@ function checkAnswer(event) {
         event.target.removeEventListener("click", checkAnswer); 
         event.target.classList.add("is-incorrect"); 
     }
+    displayScore(); 
 
+}
+
+function displayScore() {
+    correctScore.innerHTML = `Correct: ${totalCorrect}`; 
+    incorrectScore.innerHTML = `Incorrect: ${totalIncorrect}`; 
 }
 
 //Initiate the beginning of the game. 
