@@ -65,9 +65,3 @@
     background-color: rgba(250,70,70,1.0) !important; 
 }
 
-@media screen and (max-width: 400px) {
-    .navbar-brand, #navbarSupportedContent {
-        margin-right: auto !important;
-        margin-left: auto !important;  
-    }
-}

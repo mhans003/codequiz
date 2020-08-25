@@ -22,24 +22,28 @@
     <title>Code Quiz</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">Code Quiz{}</a>
-            <div id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <div id="timer">
-                            <span id="min"></span>
-                            <span class="colon">:</span>
-                            <span id="sec"></span>
-                            <span>:</span>
-                            <span id="hundredthsec"></span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand mx-auto" href="#">Code Quiz{}</a>
+        <nav class="navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-auto">
+                    <div id="scores">
+                        <span id="correct">Test</span>
+                        <span id="incorrect">Test</span>
+                    </div>
+                </li>
+                <li class="nav-item mx-auto">
+                    <div id="timer">
+                        <span id="min"></span>
+                        <span>:</span>
+                        <span id="sec"></span>
+                        <span>:</span>
+                        <span id="hundredthsec"></span>
+                    </div>
+                </li>
+            </ul>
         </nav>
-    </header>
+    </nav>
 
     <div id="main-container" class="container text-center">
         <div id="content-container" class="container">
