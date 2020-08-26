@@ -20,11 +20,11 @@
     margin-top: 5%; 
 }
 
-#correct {
+.correct {
     color: rgb(38,133,38,0.7); 
 }
 
-#incorrect {
+.incorrect {
     color: rgba(250,70,70,0.7); 
 }
 

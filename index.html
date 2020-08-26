@@ -27,9 +27,12 @@
         <nav class="navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item mx-auto mr-md-5">
+                    <button id="highscore-button" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#scoreModal">High Scores</button>
+                </li>
+                <li class="nav-item mx-auto mr-md-5">
                     <div id="scores">
-                        <span id="correct" class="mr-3">Test</span>
-                        <span id="incorrect">Test</span>
+                        <span id="correct" class="correct" class="mr-3">Correct: --</span>
+                        <span id="incorrect" class="incorrect">Incorrect: --</span>
                     </div>
                 </li>
                 <li class="nav-item mx-auto">
@@ -53,6 +56,23 @@
 
         <div id="question-box" class="container">
             
+        </div>
+    </div>
+
+    <!--High Score Modal-->
+    <div class="modal fade" id="scoreModal" tabindex="-1" aria-labelledby="scoreModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <section class="modal-header">
+                    <h5 class="modal-title" id="scoreModalLabel">High Scores</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </section>
+                <div class="modal-body">
+                    <p id="highscore-output"></p>
+                </div>
+            </div>
         </div>
     </div>
     

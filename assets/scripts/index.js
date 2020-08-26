@@ -4,6 +4,8 @@ let questionBox = document.querySelector("#question-box");
 let startButton; 
 const correctScore = document.querySelector("#correct"); 
 const incorrectScore = document.querySelector("#incorrect"); 
+const highscoreButton = document.querySelector("#highscore-button")
+const highscoreOutput = document.querySelector("#highscore-output"); 
 
 //Timer Variables 
 //Set a number of 1/100 seconds.
@@ -121,7 +123,10 @@ function endGame() {
     //End game conditions here 
 
     //Display score form 
+    displayFinalScore(); 
 
+    //Disable question box
+    questionBox.innerHTML = ""; 
     //When submitted, JSON.stringify object to store
 
     //When retrieving, JSON.parse to turn back to object 
@@ -200,13 +205,84 @@ function checkAnswer(event) {
         event.target.removeEventListener("click", checkAnswer); 
         event.target.classList.add("is-incorrect"); 
     }
-    displayScore(); 
+    updateScore(); 
 
 }
 
-function displayScore() {
+function updateScore() {
     correctScore.innerHTML = `Correct: ${totalCorrect}`; 
     incorrectScore.innerHTML = `Incorrect: ${totalIncorrect}`; 
+}
+
+function displayFinalScore() {
+
+    //Create a container div to hold the final score.
+    let scoreDiv = document.createElement("div"); 
+    
+    //Create h2 to show that time is up.
+    let timeUp = document.createElement("h2"); 
+    timeUp.innerHTML = `Time's Up!`; 
+
+    //Create elements to show the final score.
+    let finalCorrect = document.createElement("h5"); 
+    let finalIncorrect = document.createElement("h5"); 
+    let finalScore = document.createElement("h4"); 
+    finalCorrect.classList.add("correct"); 
+    finalIncorrect.classList.add("incorrect"); 
+    finalCorrect.innerHTML = `Final Correct: ${totalCorrect}`; 
+    finalIncorrect.innerHTML = `Final Incorrect: ${totalIncorrect}`; 
+    finalScore.innerHTML = `Final Score: ${totalCorrect - totalIncorrect}`
+
+    //Create a form and its components to be held within the container div. 
+    let formDiv = document.createElement("div");
+    let scoreForm = document.createElement("form"); 
+    let formGroupDiv = document.createElement("div"); 
+    let nameLabel = document.createElement("label"); 
+    let nameInput = document.createElement("input"); 
+    let submitButton = document.createElement("button"); 
+
+    //Add classes and attributes to the div and form components.
+    scoreDiv.classList.add("container"); 
+
+    formDiv.classList.add("form-group"); 
+
+    formGroupDiv.classList.add("form-group"); 
+
+    nameLabel.setAttribute("for", "input-name"); 
+    nameLabel.innerHTML = `Enter Your Name:`;
+
+    nameInput.classList.add("form-control"); 
+    nameInput.setAttribute("type", "text"); 
+    nameInput.setAttribute("id", "input-name"); 
+    nameInput.setAttribute("placeholder", "Name"); 
+
+    submitButton.classList.add("btn", "btn-primary", "btn-lg"); 
+    submitButton.setAttribute("type", "button"); 
+    submitButton.innerHTML = "Submit"; 
+
+    //Append items, and append score div to page.
+    formGroupDiv.appendChild(nameLabel); 
+    formGroupDiv.appendChild(nameInput); 
+
+    scoreForm.appendChild(formGroupDiv); 
+    scoreForm.appendChild(submitButton); 
+
+    scoreDiv.appendChild(scoreForm); 
+    contentContainer.appendChild(timeUp); 
+    contentContainer.appendChild(finalCorrect); 
+    contentContainer.appendChild(finalIncorrect); 
+    contentContainer.appendChild(finalScore); 
+    contentContainer.appendChild(scoreDiv); 
+
+    //Add event listener to submit button that saves the stringified user info (name/score) to local storage.
+    submitButton.addEventListener("click", function submitScore() {
+        console.log(`Score being submitted for ${nameInput.value}`);
+        let userInfo = {
+            score: totalCorrect - totalIncorrect
+        }
+        localStorage.setItem(nameInput.value, JSON.stringify(userInfo)); 
+    }); 
+
 }
 
 //Initiate the beginning of the game. 
@@ -218,4 +294,39 @@ function init() {
     startButton.addEventListener("click", startGame);
 }
 
+function displayHighScores() {
+
+    //Create an array to keep track of scores. 
+    let scores = []; 
+    console.log(scores); 
+
+    //Access the scores from local memory and save to the scores array. 
+    for(let i = 0; i < localStorage.length; i++) {
+        //console.log(localStorage.key(i)); 
+        console.log(localStorage.key(i)); 
+        //console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
+        let thisScore = JSON.parse(localStorage.getItem(localStorage.key(i))); 
+        scores.push({"user":localStorage.key(i),"score":thisScore.score}); 
+        //console.log(`Name: ${thisScore.name}. Their score: ${thisScore.}`)
+        //highscoreOutput.innerHTML += `${localStorage.key(i)}: ${thisScore.score}`; 
+        //highscoreOutput.innerHTML += "<br>"
+    }
+
+    //Sort the scores array by score from greatest to least. 
+    scores.sort(function(a,b) {
+        return b.score - a.score; 
+    }); 
+
+    //For each sorted score, output its user and score to the modal. 
+    scores.forEach((thisScore) => {
+        highscoreOutput.innerHTML += `${thisScore.user}: ${thisScore.score}`; 
+        highscoreOutput.innerHTML += "<br>"; 
+    }); 
+
+
+}
+
 //Events
+
+highscoreButton.addEventListener("click", displayHighScores); 
+
