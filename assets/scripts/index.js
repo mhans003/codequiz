@@ -8,6 +8,7 @@ const highscoreButton = document.querySelector("#highscore-button")
 const highscoreOutput = document.querySelector("#highscore-output"); 
 const submitScoreModal = document.querySelector("#submitscore-modalbody"); 
 const submitScoreHeading = document.querySelector("#scoreSubmittedModalLabel"); 
+const resetButton = document.querySelector("#reset-button"); 
 
 //Timer Variables 
 //Set a number of 1/100 seconds.
@@ -123,6 +124,9 @@ function startGame() {
 
 function endGame() {
     //End game conditions here 
+
+    //Show reset button.
+    resetButton.style.display = "initial"; 
 
     //Display score form 
     displayFinalScore(); 
@@ -309,6 +313,7 @@ function displayFinalScore() {
 function init() {
     totalCorrect = 0; 
     totalIncorrect = 0; 
+    resetButton.style.display = "none"; 
     contentContainer.innerHTML = '<button id="start-timer" class="btn btn-primary btn-lg" display="initial">Start Timer</button>'; 
     startButton = document.querySelector("#start-timer");
     startButton.addEventListener("click", startGame);
