@@ -6,6 +6,8 @@ const correctScore = document.querySelector("#correct");
 const incorrectScore = document.querySelector("#incorrect"); 
 const highscoreButton = document.querySelector("#highscore-button")
 const highscoreOutput = document.querySelector("#highscore-output"); 
+const submitScoreModal = document.querySelector("#submitscore-modalbody"); 
+const submitScoreHeading = document.querySelector("#scoreSubmittedModalLabel"); 
 
 //Timer Variables 
 //Set a number of 1/100 seconds.
@@ -216,6 +218,9 @@ function updateScore() {
 
 function displayFinalScore() {
 
+    //Clear the previous items (if any from previous games).
+    contentContainer.innerHTML = ""; 
+
     //Create a container div to hold the final score.
     let scoreDiv = document.createElement("div"); 
     
@@ -258,6 +263,8 @@ function displayFinalScore() {
 
     submitButton.classList.add("btn", "btn-primary", "btn-lg"); 
     submitButton.setAttribute("type", "button"); 
+    submitButton.setAttribute("data-toggle", "modal"); 
+    submitButton.setAttribute("data-target", "#scoreSubmittedModal"); 
     submitButton.innerHTML = "Submit"; 
 
     //Append items, and append score div to page.
@@ -276,11 +283,24 @@ function displayFinalScore() {
 
     //Add event listener to submit button that saves the stringified user info (name/score) to local storage.
     submitButton.addEventListener("click", function submitScore() {
-        console.log(`Score being submitted for ${nameInput.value}`);
-        let userInfo = {
-            score: totalCorrect - totalIncorrect
+
+        if(nameInput.value) {
+            console.log(`Score being submitted for ${nameInput.value}`);
+            let userInfo = {
+                score: totalCorrect - totalIncorrect
+            }
+            localStorage.setItem(nameInput.value, JSON.stringify(userInfo)); 
+
+            //Delete the used form.
+            scoreDiv.style.display = "none";
+
+            submitScoreHeading.innerText = "Success!"; 
+            submitScoreModal.innerText = "Score Saved!"; 
+        } else {
+            submitScoreHeading.innerText = "Error"; 
+            submitScoreModal.innerText = "Make sure you write in a name!"; 
         }
-        localStorage.setItem(nameInput.value, JSON.stringify(userInfo)); 
+         
     }); 
 
 }
@@ -295,6 +315,9 @@ function init() {
 }
 
 function displayHighScores() {
+
+    //Clear the high score modal to start. 
+    highscoreOutput.innerHTML = ""; 
 
     //Create an array to keep track of scores. 
     let scores = []; 
@@ -322,7 +345,6 @@ function displayHighScores() {
         highscoreOutput.innerHTML += `${thisScore.user}: ${thisScore.score}`; 
         highscoreOutput.innerHTML += "<br>"; 
     }); 
-
 
 }
 
