@@ -18,29 +18,31 @@
     <!--Custom Styles-->
     <link rel="stylesheet" href="./assets/stylesheets/style.css">
     <!--Favicon-->
-    <link rel="icon" href="./assets/images/lock.png">
-    <title>Code Quiz</title>
+    <link rel="icon" href="./assets/images/js.png">
+    <title>Javascript Quiz</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand mx-auto" href="#">Code Quiz{}</a>
+        <a class="navbar-brand mx-auto" href="#">Javascript Quiz {<i id="javascript-icon" class="fab fa-js-square"></i>}</a>
         <nav class="navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav mx-auto">
                 <li class="nav-item mx-auto mr-md-5">
-                    <button id="highscore-button" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#scoreModal">High Scores</button>
-                </li>
-                <li class="nav-item mx-auto mr-md-5">
-                    <div id="scores">
-                        <span id="correct" class="correct" class="mr-3">Correct: --</span>
-                        <span id="incorrect" class="incorrect">Incorrect: --</span>
+                    <div class="">
+                        <button id="highscore-button" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#scoreModal">High Scores</button>
                     </div>
                 </li>
                 <li class="nav-item mx-auto">
-                    <div id="timer">
+                    <div id="scores" class="">      
+                        <span id="correct" class="correct"><i class="fas fa-thumbs-up"></i>: --</span>
+                        <span id="incorrect" class="incorrect"><i class="fas fa-thumbs-down"></i>: --</span>     
+                    </div>
+                </li>
+                <li class="nav-item mx-auto ml-md-5">
+                    <div id="timer" class="">
                         <span id="min"></span>
-                        <span>:</span>
+                        <span class="colon">:</span>
                         <span id="sec"></span>
-                        <span>:</span>
+                        <span class="colon">:</span>
                         <span id="hundredthsec"></span>
                     </div>
                 </li>
@@ -58,7 +60,7 @@
             
         </div>
 
-        <button type="button" id="reset-button" class="btn btn-secondary btn-lg">RESET</button>
+        <button type="button" id="reset-button" class="btn btn-secondary btn-lg">RESET <i class="fas fa-undo-alt"></i></button>
     </div>
 
     <!--High Score Modal-->

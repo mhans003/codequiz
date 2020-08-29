@@ -3,12 +3,16 @@
 }
 
 .navbar {
-    font-size: 1.2rem; 
+    font-size: 1.0rem; 
 }
 
 .navbar-brand {
     font-size: 1.5rem; 
     color: rgba(50,50,100,1.0) !important; 
+}
+
+#javascript-icon {
+    color: rgba(247, 183, 49, 1.0); 
 }
 
 .btn-primary {
@@ -21,7 +25,7 @@
 }
 
 .correct {
-    color: rgb(38,133,38,0.7); 
+    color: rgba(38,133,38,0.7); 
 }
 
 .incorrect {
@@ -33,7 +37,7 @@
 }
 
 .question {
-    font-size: 1.5rem; 
+    font-size: 1.2rem; 
 }
 
 .answer-option {
@@ -63,7 +67,7 @@
 
 .is-incorrect {
     color: #fff !important; 
-    text-decoration: line-through;
+    /*text-decoration: line-through;*/
     background-color: rgba(250,70,70,1.0); 
     border-color: rgba(250,100,100,1.0) !important; 
     box-shadow: 6px 6px 6px rgba(150,50,50,1.0) !important;
@@ -73,3 +77,16 @@
     background-color: rgba(250,70,70,1.0) !important; 
 }
 
+.minus-five {
+    text-decoration: none !important;
+}
+
+#reset-button {
+    margin-top: 10px; 
+}
+
+@media screen and (max-width: 767px) {
+    .nav-item {
+        margin-top: 10px; 
+    }
+}

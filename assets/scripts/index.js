@@ -4,6 +4,7 @@ let questionBox = document.querySelector("#question-box");
 let startButton; 
 const correctScore = document.querySelector("#correct"); 
 const incorrectScore = document.querySelector("#incorrect"); 
+const colon = document.querySelectorAll(".colon"); 
 const highscoreButton = document.querySelector("#highscore-button")
 const highscoreOutput = document.querySelector("#highscore-output"); 
 const submitScoreModal = document.querySelector("#submitscore-modalbody"); 
@@ -37,6 +38,9 @@ function setUpTimer() {
 
     //Display the timer. 
     timerVar.style.display = "initial";
+    colon.forEach((colon) => {
+        colon.style.display = "initial"; 
+    });
 
     //Display the minutes and seconds for the first time.
     minOutput.innerHTML = getMinutes(); 
@@ -126,7 +130,13 @@ function endGame() {
     //End game conditions here 
 
     //Show reset button.
-    resetButton.style.display = "initial"; 
+    resetButton.style.display = "initial";
+    
+    //Hide the timer
+    timerVar.style.display = "none";
+    colon.forEach((colon) => {
+        colon.style.display = "none"; 
+    });
 
     //Display score form 
     displayFinalScore(); 
@@ -151,6 +161,7 @@ function generateQuestion() {
     let question = document.createElement("div");
     question.classList.add("question"); 
     question.innerText = selectedQuestion.question; 
+    //question.innerHTML = `<span class="incorrect-text">${selectedQuestion.question}</span>`; 
 
     //Generate answer box. 
     let answerBox = document.createElement("div"); 
@@ -176,6 +187,7 @@ function generateQuestion() {
 
         //Set the inner text of the option div and put it into the answer box. 
         option.innerText = selectedQuestion[optionKey]; 
+        //option.innerHTML = `<span class="incorrect-text">${selectedQuestion[optionKey]}</span>`; 
         answerBox.appendChild(option); 
     }
 
@@ -197,7 +209,6 @@ function checkAnswer(event) {
         //console.log(`total correct: ${totalCorrect}`); 
 
         //generate question again here? 
-         
         generateQuestion(); 
     } else {
         totalIncorrect++; 
@@ -210,14 +221,15 @@ function checkAnswer(event) {
         //make this one red and inactive 
         event.target.removeEventListener("click", checkAnswer); 
         event.target.classList.add("is-incorrect"); 
+        event.target.innerHTML += `<span class="minus-five float-right">-5 Seconds</span>`; 
     }
     updateScore(); 
 
 }
 
 function updateScore() {
-    correctScore.innerHTML = `Correct: ${totalCorrect}`; 
-    incorrectScore.innerHTML = `Incorrect: ${totalIncorrect}`; 
+    correctScore.innerHTML = `<i class="fas fa-thumbs-up"></i>: ${totalCorrect}`; 
+    incorrectScore.innerHTML = `<i class="fas fa-thumbs-down"></i>: ${totalIncorrect}`; 
 }
 
 function displayFinalScore() {
@@ -233,9 +245,9 @@ function displayFinalScore() {
     timeUp.innerHTML = `Time's Up!`; 
 
     //Create elements to show the final score.
-    let finalCorrect = document.createElement("h5"); 
-    let finalIncorrect = document.createElement("h5"); 
-    let finalScore = document.createElement("h4"); 
+    let finalCorrect = document.createElement("p"); 
+    let finalIncorrect = document.createElement("p"); 
+    let finalScore = document.createElement("p"); 
     finalCorrect.classList.add("correct"); 
     finalIncorrect.classList.add("incorrect"); 
     finalCorrect.innerHTML = `Final Correct: ${totalCorrect}`; 
@@ -313,10 +325,21 @@ function displayFinalScore() {
 function init() {
     totalCorrect = 0; 
     totalIncorrect = 0; 
+    correctScore.innerHTML = "<i class='fas fa-thumbs-up'></i>: --"; 
+    incorrectScore.innerHTML = "<i class='fas fa-thumbs-down'></i>: --"; 
+    //Keep timer hidden.
+    timerVar.style.display = "none";
+    colon.forEach((colon) => {
+        colon.style.display = "none"; 
+    });
     resetButton.style.display = "none"; 
     contentContainer.innerHTML = '<button id="start-timer" class="btn btn-primary btn-lg" display="initial">Start Timer</button>'; 
     startButton = document.querySelector("#start-timer");
     startButton.addEventListener("click", startGame);
+}
+
+function resetGame() {
+    init(); 
 }
 
 function displayHighScores() {
@@ -356,4 +379,5 @@ function displayHighScores() {
 //Events
 
 highscoreButton.addEventListener("click", displayHighScores); 
+resetButton.addEventListener("click", resetGame); 
 

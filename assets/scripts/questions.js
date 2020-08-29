@@ -2,30 +2,30 @@
 
 const questionSet = [
     {
-        question: "Example Question: Which is red?",
-        option0: "a. Red",
-        option1: "b. Gray",
-        option2: "c. Tan",
-        option3: "d. Pink",
-        answer: "a. Red",
+        question: "Using jQuery, which of the following would select an element with an ID of 'target'?",
+        option0: "a. $(target)",
+        option1: "b. $('target')",
+        option2: "c. $('.target')",
+        option3: "d. $('#target')",
+        answer: "d. $('#target')",
         optionNumber: 4
     },
     {
-        question: "Example Question: Which is yellow?",
-        option0: "a. Red",
-        option1: "b. Orange",
-        option2: "c. Yellow",
-        option3: "d. White",
-        answer: "c. Yellow",
+        question: "Which of these string methods splits a string into a returned array of substrings by taking a separator?",
+        option0: "a. slice()",
+        option1: "b. substr()",
+        option2: "c. split()",
+        option3: "d. substring()",
+        answer: "c. split()",
         optionNumber: 4
     },
     {
-        question: "Example Question: Which is blue?",
-        option0: "a. Orange",
-        option1: "b. Blue",
-        option2: "c. Pink",
-        option3: "d. Black",
-        answer: "b. Blue",
+        question: "Which kind of variable must be assigned a value upon declaration?",
+        option0: "a. var",
+        option1: "b. let",
+        option2: "c. const",
+        option3: "d. All of the Above",
+        answer: "c. const",
         optionNumber: 4
     }
 ];
