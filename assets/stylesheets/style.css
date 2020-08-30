@@ -2,6 +2,8 @@
     font-family: 'Fira Mono', monospace;
 }
 
+/*Navbar Styles*/
+
 .navbar {
     font-size: 1.0rem; 
     background-color: rgba(238,238,238,1.0) !important; 
@@ -15,6 +17,21 @@
 #javascript-icon {
     color: rgba(247, 183, 49, 1.0); 
 }
+
+.correct {
+    color: rgba(38,133,38,0.7); 
+}
+
+.incorrect {
+    color: rgba(250,70,70,0.7); 
+}
+
+#timer {
+    font-family: 'Source Code Pro', monospace;
+
+}
+
+/*Button Styles*/
 
 button {
     box-shadow: 3px 3px 3px rgba(150,150,150,1.0);
@@ -31,21 +48,14 @@ button {
     border: 1px solid rgba(100,100,150,1.0); 
 }
 
+#reset-button {
+    margin-top: 10px; 
+}
+
+/*Content Styles*/
+
 #main-container {
     margin-top: 5%; 
-}
-
-.correct {
-    color: rgba(38,133,38,0.7); 
-}
-
-.incorrect {
-    color: rgba(250,70,70,0.7); 
-}
-
-#timer {
-    font-family: 'Source Code Pro', monospace;
-
 }
 
 .question {
@@ -54,9 +64,6 @@ button {
     animation: popout 0.5s;
     -webkit-animation: popout 0.5s;
 }
-
-
-
 
 .answer-option, .answer-option:active, .answer-option:focus {
     border-radius: 5px; 
@@ -98,15 +105,11 @@ button {
     -webkit-animation: shake 0.5s; 
 }
 
-
-
 .is-incorrect:active, .is-incorrect:hover {
     background-color: rgba(250,70,70,1.0) !important; 
 }
 
-#reset-button {
-    margin-top: 10px; 
-}
+/*Media Queries and Animation Definitions*/
 
 @media screen and (max-width: 767px) {
     .nav-item {
