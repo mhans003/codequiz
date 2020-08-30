@@ -51,6 +51,9 @@
     </nav>
 
     <div id="main-container" class="container text-center">
+
+        <button type="button" id="instructions-button" class="btn btn-secondary btn-sm mb-3" data-toggle="modal" data-target="#instructionsModal">Instructions <i class="fas fa-info-circle"></i></button>
+
         <div id="content-container" class="container">
 
         </div>
@@ -97,6 +100,32 @@
         </div>
     </div>
     
+    <!--Instructions Modal-->
+    <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <section class="modal-header">
+                    <h5 class="modal-title" id="instructionsModalLabel" class="text-success">Instructions <i class="fas fa-info-circle"></i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </section>
+                <div class="modal-body">
+                    <p>
+                        When the Start Timer button is pressed, a timer is set for 90 seconds.
+                    </p>
+                    <p>
+                        Answer as many questions correctly as you can. Each time you select an 
+                        incorrect answer, 5 seconds will be deducted from the timer. 
+                    </p>
+                    <p>
+                        At the end of the game, you have the option of submitting your score.
+                        The number of incorrect answers will be deducted from your final score.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--JS Files-->
     <script src="./assets/scripts/questions.js"></script>

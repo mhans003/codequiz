@@ -221,7 +221,7 @@ function checkAnswer(event) {
         //make this one red and inactive 
         event.target.removeEventListener("click", checkAnswer); 
         event.target.classList.add("is-incorrect"); 
-        event.target.innerHTML += `<span class="minus-five float-right">-5 Seconds</span>`; 
+        //event.target.innerHTML += `<span class="minus-five float-right">-5 Seconds</span>`; 
     }
     updateScore(); 
 
@@ -333,7 +333,7 @@ function init() {
         colon.style.display = "none"; 
     });
     resetButton.style.display = "none"; 
-    contentContainer.innerHTML = '<button id="start-timer" class="btn btn-primary btn-lg" display="initial">Start Timer</button>'; 
+    contentContainer.innerHTML = '<button id="start-timer" class="btn btn-primary btn-lg" display="initial">Start Timer <i class="far fa-clock"></i></button>';
     startButton = document.querySelector("#start-timer");
     startButton.addEventListener("click", startGame);
 }
