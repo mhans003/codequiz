@@ -245,6 +245,7 @@ function displayFinalScore() {
     //Create h2 to show that time is up.
     let timeUp = document.createElement("h2"); 
     timeUp.innerHTML = `Time's Up!`; 
+    timeUp.style.animation = "popout 0.5s"; 
 
     //Create elements to show the final score.
     let finalCorrect = document.createElement("p"); 
@@ -254,13 +255,16 @@ function displayFinalScore() {
     finalIncorrect.classList.add("incorrect"); 
     finalCorrect.innerHTML = `Final Correct: ${totalCorrect}`; 
     finalIncorrect.innerHTML = `Final Incorrect: ${totalIncorrect}`; 
-    finalScore.innerHTML = `Final Score: ${totalCorrect - totalIncorrect}`
+    finalScore.innerHTML = `Final Score: ${totalCorrect - totalIncorrect}`; 
+    finalCorrect.style.animation = "popout 0.5s";
+    finalIncorrect.style.animation = "popout 0.5s";
+    finalScore.style.animation = "popout 0.5s";
 
     //Create a form and its components to be held within the container div. 
     let formDiv = document.createElement("div");
     let scoreForm = document.createElement("form"); 
     let formGroupDiv = document.createElement("div"); 
-    let nameLabel = document.createElement("label"); 
+    //let nameLabel = document.createElement("label"); 
     let nameInput = document.createElement("input"); 
     let submitButton = document.createElement("button"); 
 
@@ -271,13 +275,14 @@ function displayFinalScore() {
 
     formGroupDiv.classList.add("form-group"); 
 
-    nameLabel.setAttribute("for", "input-name"); 
-    nameLabel.innerHTML = `Enter Your Name:`;
+    //nameLabel.setAttribute("for", "input-name"); 
+    //nameLabel.innerHTML = `Enter Your Name:`;
 
     nameInput.classList.add("form-control"); 
     nameInput.setAttribute("type", "text"); 
     nameInput.setAttribute("id", "input-name"); 
-    nameInput.setAttribute("placeholder", "Name"); 
+    nameInput.setAttribute("placeholder", "Enter Your Name"); 
+    nameInput.style.animation = "popout 0.5s";
 
     submitButton.classList.add("btn", "btn-primary", "btn-lg"); 
     submitButton.setAttribute("type", "button"); 
@@ -286,7 +291,7 @@ function displayFinalScore() {
     submitButton.innerHTML = "Submit"; 
 
     //Append items, and append score div to page.
-    formGroupDiv.appendChild(nameLabel); 
+    //formGroupDiv.appendChild(nameLabel); 
     formGroupDiv.appendChild(nameInput); 
 
     scoreForm.appendChild(formGroupDiv); 

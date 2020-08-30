@@ -4,6 +4,7 @@
 
 .navbar {
     font-size: 1.0rem; 
+    background-color: rgba(238,238,238,1.0) !important; 
 }
 
 .navbar-brand {
@@ -13,6 +14,10 @@
 
 #javascript-icon {
     color: rgba(247, 183, 49, 1.0); 
+}
+
+button {
+    box-shadow: 3px 3px 3px rgba(150,150,150,1.0);
 }
 
 .btn-primary, .btn-primary:active {
@@ -40,11 +45,18 @@
 
 #timer {
     font-family: 'Source Code Pro', monospace;
+
 }
 
 .question {
     font-size: 1.2rem; 
+
+    animation: popout 0.5s;
+    -webkit-animation: popout 0.5s;
 }
+
+
+
 
 .answer-option, .answer-option:active, .answer-option:focus {
     border-radius: 5px; 
@@ -60,6 +72,9 @@
     padding: 10px; 
 
     box-shadow: 5px 5px 5px rgba(200,200,200,1.0);
+
+    animation: popout 0.7s;
+    -webkit-animation: popout 0.7s;
 }
 
 .answer-option:hover {
@@ -78,7 +93,12 @@
     border-color: rgba(250,100,100,1.0) !important; 
     box-shadow: 6px 6px 6px rgba(150,50,50,1.0) !important;
     text-decoration: line-through;
+
+    animation: shake 0.5s;
+    -webkit-animation: shake 0.5s; 
 }
+
+
 
 .is-incorrect:active, .is-incorrect:hover {
     background-color: rgba(250,70,70,1.0) !important; 
@@ -92,4 +112,45 @@
     .nav-item {
         margin-top: 10px; 
     }
+}
+
+@keyframes popout {
+    from{transform:scale(0)}
+    70%{transform:scale(1.3)}
+    80%{transform:scale(1)}
+    90%{transform:scale(1.1)}
+    to{transform:scale(1)}
+}
+@-webkit-keyframes popout {
+    from{-webkit-transform:scale(0)}
+    80%{-webkit-transform:scale(1.3)}
+    to{-webkit-transform:scale(1)}
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 0px); }
+    10% { transform: translate(-1px, 0px); }
+    20% { transform: translate(-5px, 0px); }
+    30% { transform: translate(4px, 0px); }
+    40% { transform: translate(1px, 0px); }
+    50% { transform: translate(-1px, 0px); }
+    60% { transform: translate(-4px, 0px); }
+    70% { transform: translate(5px, 0px); }
+    80% { transform: translate(-1px, 0px); }
+    90% { transform: translate(1px, 0px); }
+    100% { transform: translate(1px, 0px); }
+}
+
+@-webkit-keyframes shake {
+    0% { transform: translate(1px, 0px); }
+    10% { transform: translate(-1px, 0px); }
+    20% { transform: translate(-5px, 0px); }
+    30% { transform: translate(4px, 0px); }
+    40% { transform: translate(1px, 0px); }
+    50% { transform: translate(-1px, 0px); }
+    60% { transform: translate(-4px, 0px); }
+    70% { transform: translate(5px, 0px); }
+    80% { transform: translate(-1px, 0px); }
+    90% { transform: translate(1px, 0px); }
+    100% { transform: translate(1px, 0px); }
 }
