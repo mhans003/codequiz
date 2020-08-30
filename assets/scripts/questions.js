@@ -84,7 +84,6 @@ const questionSet = [
     }
 ];
 
+//Prepare the JSON and parsed versions of the question set. 
 let JSONquestions = JSON.stringify(questionSet);
-console.log(JSONquestions); 
 let parsedquestions = JSON.parse(JSONquestions); 
-console.log(parsedquestions);  

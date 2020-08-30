@@ -1,7 +1,7 @@
 //Page Elements
+let startButton;
+let questionBox = document.querySelector("#question-box");  
 const contentContainer = document.querySelector("#content-container");  
-let questionBox = document.querySelector("#question-box"); 
-let startButton; 
 const correctScore = document.querySelector("#correct"); 
 const incorrectScore = document.querySelector("#incorrect"); 
 const colon = document.querySelectorAll(".colon"); 
@@ -30,6 +30,8 @@ let hundredthsecOutput = document.querySelector("#hundredthsec");
 
 //Set up the beginning of the game. 
 init(); 
+
+//TIMER FUNCTIONS
 
 function setUpTimer() {
     //Prepare the timer for the first time.
@@ -108,63 +110,58 @@ function countDown() {
 }
 
 function endTimer() {
-    //End the game 
+    //Clear the timer and end the game. 
     clearInterval(timerInterval); 
     endGame(); 
-}
-
-function clearTimer() {
-    timerVar.style.display = "none"; 
 }
 
 //GAME FUNCTIONS
 
 function startGame() {
+    //Start the game by hiding the start button and setting up the timer.
     startButton.style.display = "none";
     setUpTimer(); 
     
-    //Generate the first question
+    //Generate the first question. 
     generateQuestion(); 
 }
 
 function endGame() {
-    //End game conditions here 
+    //End the game by showing the reset button, hiding the timer, and generating the final score.
 
     //Show reset button.
     resetButton.style.display = "initial";
     
-    //Hide the timer
+    //Hide the timer. 
     timerVar.style.display = "none";
     colon.forEach((colon) => {
         colon.style.display = "none"; 
     });
 
-    //Display score form 
+    //Display the final score form to input score. 
     displayFinalScore(); 
 
-    //Disable question box
+    //Clear the question box. 
     questionBox.innerHTML = ""; 
-    //When submitted, JSON.stringify object to store
-
-    //When retrieving, JSON.parse to turn back to object 
 }
 
 function generateQuestion() {
+    //Generate the question from the question.js file and display to the screen.
 
-    //Clear the question box.
+    //Clear the question box for the next question.
     questionBox.innerHTML = ""; 
 
     //Determine which question is selected.
     let randomNumber = Math.floor(Math.random() * questionSet.length); 
     let selectedQuestion = questionSet[randomNumber]; 
 
-    //Generate question div.
+    //Generate a question div.
     let question = document.createElement("div");
     question.classList.add("question"); 
     question.innerText = selectedQuestion.question; 
     //question.innerHTML = `<span class="incorrect-text">${selectedQuestion.question}</span>`; 
 
-    //Generate answer box. 
+    //Generate an answer box. 
     let answerBox = document.createElement("div"); 
     answerBox.classList.add("container");
     
@@ -187,8 +184,7 @@ function generateQuestion() {
         option.addEventListener("click", checkAnswer); 
 
         //Set the inner text of the option div and put it into the answer box. 
-        option.innerText = selectedQuestion[optionKey]; 
-        //option.innerHTML = `<span class="incorrect-text">${selectedQuestion[optionKey]}</span>`; 
+        option.innerText = selectedQuestion[optionKey];  
         answerBox.appendChild(option); 
     }
 
@@ -197,44 +193,40 @@ function generateQuestion() {
 
     //Add the answer box to the question box.
     questionBox.appendChild(answerBox); 
-
 }
 
 function checkAnswer(event) {
-    //console.log("Correct answer: " + event.target.getAttribute("correct-value")); 
-    //console.log("This answer: " + event.target.innerText); 
-    //console.log(event.target.getAttribute("correct-value") === event.target.innerText); 
+    //Check the answer, passing the click event into the function and checking the target(selected answer option).
 
+    //Check if this is the correct answer. 
     if(event.target.getAttribute("correct-value") === event.target.innerText) {
+        //If the answer is correct, play a chime, add to the score, and generate another question.
         chime.play(); 
         totalCorrect++; 
-        //console.log(`total correct: ${totalCorrect}`); 
-
-        //generate question again here? 
         generateQuestion(); 
     } else {
+        //If the answer is incorect, add to the overall incorrect score, reduce the time, and cross out this answer.
         totalIncorrect++; 
-        //console.log(`total incorrect: ${totalIncorrect}`); 
-        
-
+    
         //Reduce the time left over by 5 seconds. 
         remainingTime -= 500; 
 
-        //make this one red and inactive 
+        //Make this answer option red and inactive. 
         event.target.removeEventListener("click", checkAnswer); 
         event.target.classList.add("is-incorrect"); 
-        //event.target.innerHTML += `<span class="minus-five float-right">-5 Seconds</span>`; 
     }
+    //Update the final score.
     updateScore(); 
-
 }
 
 function updateScore() {
+    //Display the current score. 
     correctScore.innerHTML = `<i class="fas fa-thumbs-up"></i>: ${totalCorrect}`; 
     incorrectScore.innerHTML = `<i class="fas fa-thumbs-down"></i>: ${totalIncorrect}`; 
 }
 
 function displayFinalScore() {
+    //Display the final score and prepare to let the user input their name and submit score. 
 
     //Clear the previous items (if any from previous games).
     contentContainer.innerHTML = ""; 
@@ -264,7 +256,6 @@ function displayFinalScore() {
     let formDiv = document.createElement("div");
     let scoreForm = document.createElement("form"); 
     let formGroupDiv = document.createElement("div"); 
-    //let nameLabel = document.createElement("label"); 
     let nameInput = document.createElement("input"); 
     let submitButton = document.createElement("button"); 
 
@@ -274,9 +265,6 @@ function displayFinalScore() {
     formDiv.classList.add("form-group"); 
 
     formGroupDiv.classList.add("form-group"); 
-
-    //nameLabel.setAttribute("for", "input-name"); 
-    //nameLabel.innerHTML = `Enter Your Name:`;
 
     nameInput.classList.add("form-control"); 
     nameInput.setAttribute("type", "text"); 
@@ -289,26 +277,25 @@ function displayFinalScore() {
     submitButton.setAttribute("data-toggle", "modal"); 
     submitButton.setAttribute("data-target", "#scoreSubmittedModal"); 
     submitButton.innerHTML = "Submit"; 
-
-    //Append items, and append score div to page.
-    //formGroupDiv.appendChild(nameLabel); 
+ 
     formGroupDiv.appendChild(nameInput); 
 
     scoreForm.appendChild(formGroupDiv); 
     scoreForm.appendChild(submitButton); 
 
     scoreDiv.appendChild(scoreForm); 
+
     contentContainer.appendChild(timeUp); 
     contentContainer.appendChild(finalCorrect); 
     contentContainer.appendChild(finalIncorrect); 
     contentContainer.appendChild(finalScore); 
     contentContainer.appendChild(scoreDiv); 
 
-    //Add event listener to submit button that saves the stringified user info (name/score) to local storage.
+    //Add an event listener to submit button that saves the stringified user info (name/score) to local storage.
     submitButton.addEventListener("click", function submitScore() {
 
+        //Check if there was a nme input.
         if(nameInput.value) {
-            console.log(`Score being submitted for ${nameInput.value}`);
             let userInfo = {
                 score: totalCorrect - totalIncorrect
             }
@@ -319,36 +306,41 @@ function displayFinalScore() {
 
             submitScoreHeading.innerText = "Success!"; 
             submitScoreModal.innerText = "Score Saved!"; 
+        //Prompt the user to input a name if they have not.
         } else {
             submitScoreHeading.innerText = "Error"; 
             submitScoreModal.innerText = "Make sure you write in a name!"; 
         }
-         
     }); 
-
 }
 
 //Initiate the beginning of the game. 
 function init() {
+    //Reset/initialize score values.
     totalCorrect = 0; 
     totalIncorrect = 0; 
     correctScore.innerHTML = "<i class='fas fa-thumbs-up'></i>: --"; 
     incorrectScore.innerHTML = "<i class='fas fa-thumbs-down'></i>: --"; 
-    //Keep timer hidden.
+
+    //Keep the timer hidden.
     timerVar.style.display = "none";
     colon.forEach((colon) => {
         colon.style.display = "none"; 
     });
+
+    //Prepare the screen for the start of the game.
     resetButton.style.display = "none"; 
     contentContainer.innerHTML = '<button id="start-timer" class="btn btn-primary btn-lg" display="initial">Start Timer <i class="far fa-clock"></i></button>';
     startButton = document.querySelector("#start-timer");
     startButton.addEventListener("click", startGame);
 }
 
+//Reset the game by calling the init function. 
 function resetGame() {
     init(); 
 }
 
+//Display the high scores when the user clicks the high scores button. 
 function displayHighScores() {
 
     //Clear the high score modal to start. 
@@ -356,18 +348,11 @@ function displayHighScores() {
 
     //Create an array to keep track of scores. 
     let scores = []; 
-    console.log(scores); 
 
     //Access the scores from local memory and save to the scores array. 
     for(let i = 0; i < localStorage.length; i++) {
-        //console.log(localStorage.key(i)); 
-        console.log(localStorage.key(i)); 
-        //console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
         let thisScore = JSON.parse(localStorage.getItem(localStorage.key(i))); 
         scores.push({"user":localStorage.key(i),"score":thisScore.score}); 
-        //console.log(`Name: ${thisScore.name}. Their score: ${thisScore.}`)
-        //highscoreOutput.innerHTML += `${localStorage.key(i)}: ${thisScore.score}`; 
-        //highscoreOutput.innerHTML += "<br>"
     }
 
     //Sort the scores array by score from greatest to least. 
@@ -380,7 +365,6 @@ function displayHighScores() {
         highscoreOutput.innerHTML += `${thisScore.user}: ${thisScore.score}`; 
         highscoreOutput.innerHTML += "<br>"; 
     }); 
-
 }
 
 //Events
