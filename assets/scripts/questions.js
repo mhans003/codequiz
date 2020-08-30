@@ -151,7 +151,7 @@ const questionSet = [
         option1: "b. char",
         option2: "c. string",
         option3: "d. null",
-        answer: "b. events",
+        answer: "c. string",
         optionNumber: 4
     },
     {
@@ -227,30 +227,12 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Which of the following is an example of a template literal?",
-        option0: "a. var str = 'Javascript is fun!';",
-        option1: "b. var str = `${Javascript} is fun!`;",
-        option2: "c. var str = '/Javascript/ is fun!';",
-        option3: "d. var str = `[Javascript] is fun!`;",
-        answer: "b. var str = `${Javascript} is fun!`;",
-        optionNumber: 4
-    },
-    {
         question: "What of the following is the name of a syntax which can be converted to/from a Javascript object and is used for storing and exchanging data?",
         option0: "a. Sass",
         option1: "b. jQuery",
         option2: "c. JSON",
         option3: "d. AJAX",
         answer: "c. JSON",
-        optionNumber: 4
-    },
-    {
-        question: "getTotal(); is the example of a(n)...",
-        option0: "a. Function Declaration",
-        option1: "b. Function Parameter",
-        option2: "c. Function Call",
-        option3: "d. Function Argument",
-        answer: "c. Function Call",
         optionNumber: 4
     },
     {
