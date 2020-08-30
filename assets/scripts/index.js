@@ -380,4 +380,3 @@ function displayHighScores() {
 
 highscoreButton.addEventListener("click", displayHighScores); 
 resetButton.addEventListener("click", resetGame); 
-
