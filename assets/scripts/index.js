@@ -28,6 +28,9 @@ let minOutput = document.querySelector("#min");
 let secOutput = document.querySelector("#sec"); 
 let hundredthsecOutput = document.querySelector("#hundredthsec"); 
 
+//Keep track of question index.
+let currentQuestion = 0; 
+
 //Set up the beginning of the game. 
 init(); 
 
@@ -150,10 +153,17 @@ function generateQuestion() {
 
     //Clear the question box for the next question.
     questionBox.innerHTML = ""; 
+    
+    //If the current question is above the last index of the question set, reshuffleQuestions and go back to the first question in the shuffled list.
+    if(currentQuestion >= questionSet.length - 1) {
+        shuffleQuestions(questionSet); 
+        currentQuestion = 0; 
+    }
 
-    //Determine which question is selected.
-    let randomNumber = Math.floor(Math.random() * questionSet.length); 
-    let selectedQuestion = questionSet[randomNumber]; 
+    //Get the next question in the shuffled list. 
+    let selectedQuestion = questionSet[currentQuestion]; 
+    //Increment the index of the current question for next time. 
+    currentQuestion++; 
 
     //Generate a question div.
     let question = document.createElement("div");
@@ -321,6 +331,10 @@ function init() {
     totalIncorrect = 0; 
     correctScore.innerHTML = "<i class='fas fa-thumbs-up'></i>: --"; 
     incorrectScore.innerHTML = "<i class='fas fa-thumbs-down'></i>: --"; 
+
+    //Shuffle the questions and reset the index to 0.
+    shuffleQuestions(questionSet); 
+    currentQuestion = 0; 
 
     //Keep the timer hidden.
     timerVar.style.display = "none";

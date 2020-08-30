@@ -117,6 +117,12 @@ button {
     }
 }
 
+@media screen and (max-width: 305px) {
+    .navbar-brand {
+        font-size: 1.2rem; 
+    }
+}
+
 @keyframes popout {
     from{transform:scale(0)}
     70%{transform:scale(1.3)}
