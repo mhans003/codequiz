@@ -10,6 +10,7 @@ const highscoreOutput = document.querySelector("#highscore-output");
 const submitScoreModal = document.querySelector("#submitscore-modalbody"); 
 const submitScoreHeading = document.querySelector("#scoreSubmittedModalLabel"); 
 const resetButton = document.querySelector("#reset-button"); 
+const chime = document.querySelector("#chime"); 
 
 //Timer Variables 
 //Set a number of 1/100 seconds.
@@ -205,6 +206,7 @@ function checkAnswer(event) {
     //console.log(event.target.getAttribute("correct-value") === event.target.innerText); 
 
     if(event.target.getAttribute("correct-value") === event.target.innerText) {
+        chime.play(); 
         totalCorrect++; 
         //console.log(`total correct: ${totalCorrect}`); 
 
