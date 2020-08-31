@@ -109,6 +109,12 @@ button {
     background-color: rgba(250,70,70,1.0) !important; 
 }
 
+#input-name {
+    max-width: 200px; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
 /*Media Queries and Animation Definitions*/
 
 @media screen and (max-width: 767px) {
