@@ -366,7 +366,6 @@ function displayHighScores() {
     //Access the scores from local memory and save to the scores array. 
     for(let i = 0; i < localStorage.length; i++) {
         let thisScore = JSON.parse(localStorage.getItem(localStorage.key(i))); 
-        console.log(thisScore, localStorage.key(i)); 
         //See if the cuurrent accessed item is in fact a score for this game. If so, push it.
         let checkProperty; 
         for(var property in thisScore) {
