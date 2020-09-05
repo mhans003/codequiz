@@ -465,7 +465,7 @@ const questionSet = [
 //Prepare the JSON and parsed versions of the question set. 
 let questionsLength = questionSet.length;  
 let JSONquestions = JSON.stringify(questionSet);
-let parsedquestions = JSON.parse(JSONquestions);
+let parsedquestions = JSON.parse(JSONquestions); 
 
 //Use a function based on the Fisher-Yates shuffle to shuffle the array. 
 function shuffleQuestions(questions) {

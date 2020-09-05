@@ -366,7 +366,10 @@ function displayHighScores() {
     //Access the scores from local memory and save to the scores array. 
     for(let i = 0; i < localStorage.length; i++) {
         let thisScore = JSON.parse(localStorage.getItem(localStorage.key(i))); 
-        scores.push({"user":localStorage.key(i),"score":thisScore.score}); 
+        console.log(thisScore, localStorage.key(i)); 
+        if(thisScore && localStorage.key(i)) {
+            scores.push({"user":localStorage.key(i),"score":thisScore.score}); 
+        }
     }
 
     //Sort the scores array by score from greatest to least. 
