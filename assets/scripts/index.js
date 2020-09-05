@@ -367,7 +367,13 @@ function displayHighScores() {
     for(let i = 0; i < localStorage.length; i++) {
         let thisScore = JSON.parse(localStorage.getItem(localStorage.key(i))); 
         console.log(thisScore, localStorage.key(i)); 
-        if(thisScore && localStorage.key(i)) {
+        let checkProperty; 
+        for(var property in thisScore) {
+            //console.log(typeof(property)); 
+            checkProperty = property; 
+            console.log(checkProperty); 
+        }
+        if(checkProperty === "score") {
             scores.push({"user":localStorage.key(i),"score":thisScore.score}); 
         }
     }
