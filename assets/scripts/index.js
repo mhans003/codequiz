@@ -364,15 +364,15 @@ function displayHighScores() {
     let scores = []; 
 
     //Access the scores from local memory and save to the scores array. 
-    for(let i = 0; i < localStorage.length; i++) {
-        let thisScore = JSON.parse(localStorage.getItem(localStorage.key(i))); 
+    for(let storageIndex = 0; storageIndex < localStorage.length; storageIndex++) {
+        let thisScore = JSON.parse(localStorage.getItem(localStorage.key(storageIndex))); 
         //See if the cuurrent accessed item is in fact a score for this game. If so, push it.
         let checkProperty; 
         for(var property in thisScore) {
             checkProperty = property; 
         }
         if(checkProperty === "score") {
-            scores.push({"user":localStorage.key(i),"score":thisScore.score}); 
+            scores.push({"user":localStorage.key(storageIndex),"score":thisScore.score}); 
         }
     }
 
