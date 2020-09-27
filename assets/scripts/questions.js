@@ -47,7 +47,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Which of the following is a logical operator in Javascript meaning NOT?",
+        question: "Which of the following is a logical operator in JavaScript meaning NOT?",
         option0: "a. #",
         option1: "b. &",
         option2: "c. $",
@@ -56,7 +56,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Which of the following is a logical operator in Javascript meaning OR?",
+        question: "Which of the following is a logical operator in JavaScript meaning OR?",
         option0: "a. &&",
         option1: "b. ||",
         option2: "c. ##",
@@ -83,7 +83,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "When was Javascript developed?",
+        question: "When was JavaScript developed?",
         option0: "a. 1990",
         option1: "b. 1995",
         option2: "c. 2000",
@@ -92,7 +92,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "In what kind of HTML tag can embedded Javascript be placed?",
+        question: "In what kind of HTML tag can embedded JavaScript be placed?",
         option0: "a. <javascript>",
         option1: "b. <java>",
         option2: "c. <script>",
@@ -146,7 +146,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "What Javascript data type is used to hold text, or a series of characters?",
+        question: "What JavaScript data type is used to hold text, or a series of characters?",
         option0: "a. boolean",
         option1: "b. char",
         option2: "c. string",
@@ -182,7 +182,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "All of the following are types of Javascript loops except:",
+        question: "All of the following are types of JavaScript loops except:",
         option0: "a. for",
         option1: "b. while",
         option2: "c. during",
@@ -191,7 +191,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Which built-in Javascript object contains the methods floor() and ceil()?",
+        question: "Which built-in JavaScript object contains the methods floor() and ceil()?",
         option0: "a. Arithmetic",
         option1: "b. Operator",
         option2: "c. Digits",
@@ -219,15 +219,15 @@ const questionSet = [
     },
     {
         question: "Which of the following is an example of a template literal?",
-        option0: "a. var str = 'Javascript is fun!';",
-        option1: "b. var str = `${Javascript} is fun!`;",
-        option2: "c. var str = '/Javascript/ is fun!';",
-        option3: "d. var str = `[Javascript] is fun!`;",
-        answer: "b. var str = `${Javascript} is fun!`;",
+        option0: "a. var str = 'JavaScript is fun!';",
+        option1: "b. var str = `${JavaScript} is fun!`;",
+        option2: "c. var str = '/JavaScript/ is fun!';",
+        option3: "d. var str = `[JavaScript] is fun!`;",
+        answer: "b. var str = `${JavaScript} is fun!`;",
         optionNumber: 4
     },
     {
-        question: "What of the following is the name of a syntax which can be converted to/from a Javascript object and is used for storing and exchanging data?",
+        question: "What of the following is the name of a syntax which can be converted to/from a JavaScript object and is used for storing and exchanging data?",
         option0: "a. Sass",
         option1: "b. jQuery",
         option2: "c. JSON",
@@ -290,7 +290,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "what is the Javascript operator for multiplication?",
+        question: "what is the JavaScript operator for multiplication?",
         option0: "a. x",
         option1: "b. #",
         option2: "c. *",
@@ -308,7 +308,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Which of the following is not a Javascript conditional statement?",
+        question: "Which of the following is not a JavaScript conditional statement?",
         option0: "a. switch",
         option1: "b. if",
         option2: "c. else",
@@ -326,7 +326,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Which JSON method converts a Javascript object into a string?",
+        question: "Which JSON method converts a JavaScript object into a string?",
         option0: "a. JSON.string()",
         option1: "b. JSON.toString()",
         option2: "c. JSON.parse()",
@@ -380,7 +380,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Dividing a number by zero in the Javascript console will return a value of:",
+        question: "Dividing a number by zero in the JavaScript console will return a value of:",
         option0: "a. NaN",
         option1: "b. Infinity",
         option2: "c. -Infinity",
@@ -425,7 +425,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Which symbol ends/separates Javascript statements?",
+        question: "Which symbol ends/separates JavaScript statements?",
         option0: "a. ;",
         option1: "b. ,",
         option2: "c. :",
