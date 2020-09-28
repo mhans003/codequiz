@@ -5,6 +5,7 @@
 [JavaScript Quiz](https://mhans003.github.io/codequiz/)
 
 ![Screenshot of JavaScript Quiz](./assets/images/screenshot.jpg)
+![Screenshot of JavaScript Quiz](./assets/images/screenshot2.jpg)
 
 ### Description 
 
