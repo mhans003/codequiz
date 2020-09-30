@@ -25,4 +25,8 @@ The program ensures that the questions are shuffled upon each iteration of gamep
 * Timer displays remaining time down to the hundredth second. 
 * Dynamically-produced elements allow for a cleaner HTML homepage. 
 
+### License 
+
+Licensed under the [MIT License](./LICENSE.txt).
+
 
