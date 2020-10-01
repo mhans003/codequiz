@@ -1,13 +1,13 @@
 # JavaScript Quiz
 
-### Deployed Application 
+## Deployed Application 
 
 [JavaScript Quiz](https://mhans003.github.io/codequiz/)
 
 ![Screenshot of JavaScript Quiz](./assets/images/screenshot.jpg)
 ![Screenshot of JavaScript Quiz](./assets/images/screenshot2.jpg)
 
-### Description 
+## Description 
 
 This program is a timed JavaScript quiz game that stores high scores in the browser's local storage. 
 
@@ -15,7 +15,7 @@ The game initiates when the player presses the start button. The player has 90 s
 
 The program ensures that the questions are shuffled upon each iteration of gameplay. 
 
-### Features
+## Features
 
 * Responsive to screen sizes across devices. 
 * Incorporates Bootstrap utilities including container, modal, buttons, and navbar. 
@@ -24,8 +24,16 @@ The program ensures that the questions are shuffled upon each iteration of gamep
 * Sounds and CSS animations produce a more engaging gameplay experience. 
 * Timer displays remaining time down to the hundredth second. 
 * Dynamically-produced elements allow for a cleaner HTML homepage. 
+* JavaScript, HTML, CSS
 
-### License 
+## Contact
+
+Michael Hanson
+* michaeledwardhanson@gmail.com
+* [GitHub](https://github.com/mhans003)
+* [LinkedIn](https://www.linkedin.com/in/michaeledwardhanson/)
+
+## License 
 
 Licensed under the [MIT License](./LICENSE.txt).
 
