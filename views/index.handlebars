@@ -1,0 +1,116 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand mx-auto" href="#">JavaScript Quiz {<i id="javascript-icon" class="fab fa-js-square"></i>}</a>
+    <nav class="navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item mx-auto mr-md-5">
+                <div class="">
+                    <button id="highscore-button" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#scoreModal">High Scores</button>
+                </div>
+            </li>
+            <li class="nav-item mx-auto">
+                <div id="scores" class="">      
+                    <span id="correct" class="correct"><i class="fas fa-thumbs-up"></i>: --</span>
+                    <span id="incorrect" class="incorrect"><i class="fas fa-thumbs-down"></i>: --</span>     
+                </div>
+            </li>
+            <li class="nav-item mx-auto ml-md-5">
+                <div id="timer" class="">
+                    <span id="min"></span>
+                    <span class="colon">:</span>
+                    <span id="sec"></span>
+                    <span class="colon">:</span>
+                    <span id="hundredthsec"></span>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</nav>
+
+<div id="main-container" class="container text-center">
+    <button type="button" id="instructions-button" class="btn btn-secondary btn-sm mb-3" data-toggle="modal" data-target="#instructionsModal">Instructions <i class="fas fa-info-circle"></i></button>
+    <div id="content-container" class="container">
+
+    </div>
+    <div id="question-box" class="container">  
+
+    </div>
+    <button type="button" id="reset-button" class="btn btn-secondary btn-lg">RESET <i class="fas fa-undo-alt"></i></button>
+</div>
+
+<!--High Score Modal-->
+<div class="modal fade" id="scoreModal" tabindex="-1" aria-labelledby="scoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <section class="modal-header">
+                <h5 class="modal-title" id="scoreModalLabel">High Scores</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </section>
+            <div class="modal-body">
+                <!--<p id="highscore-output"></p>-->
+                <ol>
+                    {{#each scores}}
+                        <li>{{dataValues.name}}: {{dataValues.score}}</li>
+                    {{/each}}
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Score Submitted Modal-->
+<div class="modal fade" id="scoreSubmittedModal" tabindex="-1" aria-labelledby="scoreSubmittedModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <section class="modal-header">
+                <h5 class="modal-title" id="scoreSubmittedModalLabel">Success!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </section>
+            <div class="modal-body">
+                <h5 id="submitscore-modalbody">Score Saved!</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Instructions Modal-->
+<div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <section class="modal-header">
+                <h5 class="modal-title" id="instructionsModalLabel">Instructions <i class="fas fa-info-circle"></i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </section>
+            <div class="modal-body">
+                <p>
+                    When the Start Timer button is pressed, a timer is set for 90 seconds.
+                </p>
+                <p>
+                    Answer as many questions correctly as you can. Each time you select an 
+                    incorrect answer, 5 seconds will be deducted from the timer. 
+                </p>
+                <p>
+                    At the end of the game, you have the option of submitting your score.
+                    The number of incorrect answers will be deducted from your final score.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Audio-->
+<audio id="chime">
+    <source src="./assets/sounds/chimetrim.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!--JS Files-->
+<script src="./assets/scripts/questions.js"></script>
+<script src="./assets/scripts/index.js"></script>
+
+
