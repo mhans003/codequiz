@@ -15,7 +15,7 @@ if (process.env.DATABASE_URL) {
     dialect:  'postgres',
     protocol: 'postgres',
     port:     process.env.PORT,
-    host:     match[3],
+    host:     process.env.HOST,
     logging:  true //false
   });
 //} else if (config.use_env_variable) {
