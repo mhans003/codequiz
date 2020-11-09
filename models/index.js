@@ -10,17 +10,16 @@ const db = {};
 
 let sequelize;
 if (process.env.DATABASE_URL) {
-  // the application is executed on Heroku ... use the postgres database
+  //If the application is running on Heroku, use Postgres. 
   sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect:  'postgres',
     protocol: 'postgres',
     port:     process.env.PORT,
     host:     process.env.HOST,
-    logging:  true //false
+    logging:  true 
   });
-//} else if (config.use_env_variable) {
-  //sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
+  //Otherwise, run the local DB. 
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 

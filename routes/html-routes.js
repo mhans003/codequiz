@@ -3,11 +3,12 @@ const express = require("express");
 
 const router = express.Router(); 
 
+//Require Score model. 
 const db = require("../models"); 
 const { Score } = db; 
 
 router.get("/", function(request, response) {
-    //response.sendFile(path.join(__dirname, "../public/index.html"));
+    //Get all scores when the page loads in order to display high scores. 
     Score.findAll().then(scores => {
 
         //Sort the scores array by score from greatest to least. 
@@ -15,17 +16,16 @@ router.get("/", function(request, response) {
             return b.dataValues.score - a.dataValues.score; 
         }); 
 
-        console.log(scores); 
+        //Render the main page with the retrieved scores. 
         response.render("index", { scores:scores });  
     }); 
     
 }); 
 
 router.post("/", function(request, response) {
+    //Create the new score using the information sent over from the ajax call. 
     Score.create(request.body).then(result => {
         console.log(result); 
-
-        
     }); 
 }); 
 

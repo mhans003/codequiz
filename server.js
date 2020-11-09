@@ -1,4 +1,4 @@
-//Configure Express 
+//Configure Express and require important dependencies. 
 const express = require("express"); 
 const handlebars = require("express-handlebars"); 
 const app = express(); 
@@ -18,32 +18,15 @@ app.use(express.json());
 app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+//Set up port and public directory. 
 app.set('port', process.env.PORT || 3000);
-//app.set('views', __dirname + '/views');
-//app.set('view engine', 'jade');
-//app.use(express.favicon());
-//app.use(express.logger('dev'));
-//app.use(express.bodyParser());
-//app.use(express.methodOverride());
-//app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-
-//Development only
-/*
-if ('development' === app.get('env')) {
-    app.use(express.errorHandler());
-}
-*/
-  
-//app.get('/', routes.index);
-//app.get('/users', user.list);
 
 //Require and initialize routes. 
 const routes = require("./routes/html-routes.js"); 
-//const { response } = require("express");
 app.use(routes); 
-//Include score routes
   
+//Sync database and start server. 
 db.sequelize.sync().then(() => {
     http.createServer(app).listen(app.get('port'), () => {
         console.log('Express server listening on port ' + app.get('port'));
