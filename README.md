@@ -4,7 +4,6 @@
 ## Deployed Application 
 
 [JavaScript Quiz - Heroku Deployment](https://javascript-quiz-game-mh.herokuapp.com/)
-[JavaScript Quiz - GitHub Pages](https://mhans003.github.io/codequiz/)
 
 ![Screenshot of JavaScript Quiz](./public/assets/images/screenshot.jpg)
 ![Screenshot of JavaScript Quiz](./public/assets/images/screenshot2.jpg)
