@@ -459,6 +459,42 @@ const questionSet = [
         option3: "d. const",
         answer: "b. this",
         optionNumber: 4
+    },
+    {
+        question: "Which jQuery method can be used to send an asynchronous HTTP request?",
+        option0: "a. $.request",
+        option1: "b. $.ajax",
+        option2: "c. $.http",
+        option3: "d. $.async",
+        answer: "b. $.ajax",
+        optionNumber: 4
+    },
+    {
+        question: "Which statement will evaluate TRUE?",
+        option0: "a. [2,4,5] === [2,4,5]",
+        option1: "b. null === undefined",
+        option2: "c. null == undefined",
+        option3: "d. 0 === null",
+        answer: "c. null == undefined",
+        optionNumber: 4
+    },
+    {
+        question: "Which character is known as the escape character?",
+        option0: "a. *",
+        option1: "b. ?",
+        option2: "c. |",
+        option3: "d. \\",
+        answer: "d. \\",
+        optionNumber: 4
+    },
+    {
+        question: "The default behavior by which variable declarations are moved to the top of the current scope is called...",
+        option0: "a. hoisting",
+        option1: "b. initializing",
+        option2: "c. scoping",
+        option3: "d. invoking",
+        answer: "a. hoisting",
+        optionNumber: 4
     }
 ];
 
