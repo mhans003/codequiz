@@ -67,8 +67,7 @@ function getMinutes() {
         return `0${minutes}`; 
     } else {
         return minutes; 
-    }
-    
+    } 
 }
 
 //Access the seconds in the appropriate format using the remaining time left.
@@ -304,16 +303,12 @@ function displayFinalScore() {
     //Add an event listener to submit button that saves the stringified user info (name/score) to local storage.
     submitButton.addEventListener("click", function submitScore() {
 
-        //Check if there was a nme input.
+        //Check if there was a name input.
         if(nameInput.value) {
-            let userInfo = {
-                score: totalCorrect - totalIncorrect
-            }
-            localStorage.setItem(nameInput.value, JSON.stringify(userInfo)); 
-
             //Delete the used form.
             scoreDiv.style.display = "none";
 
+            //Create score to be sent to MySQL database.
             let scoreData = {
                 name: nameInput.value,
                 score: totalCorrect - totalIncorrect
@@ -329,14 +324,8 @@ function displayFinalScore() {
 
                     submitScoreHeading.innerText = "Success!"; 
                     submitScoreModal.innerText = "Score Saved!"; 
-
-                    //location.reload(); 
                 }
             ); 
-
-            //submitScoreHeading.innerText = "Success!"; 
-            //submitScoreModal.innerText = "Score Saved!"; 
-        //Prompt the user to input a name if they have not.
         } else {
             submitScoreHeading.innerText = "Error"; 
             submitScoreModal.innerText = "Make sure you write in a name!"; 
@@ -374,44 +363,7 @@ function resetGame() {
     init(); 
 }
 
-//Display the high scores when the user clicks the high scores button. 
-function displayHighScores() {
-
-    //Clear the high score modal to start. 
-    highscoreOutput.innerHTML = ""; 
-
-    //Create an array to keep track of scores. 
-    let scores = []; 
-
-    //Access the scores from local memory and save to the scores array. 
-    for(let storageIndex = 0; storageIndex < localStorage.length; storageIndex++) {
-        let thisScore = JSON.parse(localStorage.getItem(localStorage.key(storageIndex))); 
-        //See if the cuurrent accessed item is in fact a score for this game. If so, push it.
-        let checkProperty; 
-        for(var property in thisScore) {
-            checkProperty = property; 
-        }
-        if(checkProperty === "score") {
-            scores.push({"user":localStorage.key(storageIndex),"score":thisScore.score}); 
-        }
-    }
-
-    //Sort the scores array by score from greatest to least. 
-    scores.sort(function(a,b) {
-        return b.score - a.score; 
-    }); 
-
-    //For each sorted score, output its user and score to the modal. 
-    scores.forEach((thisScore) => {
-        highscoreOutput.innerHTML += `${thisScore.user}: ${thisScore.score}`; 
-        highscoreOutput.innerHTML += "<br>"; 
-    }); 
-}
-
 //Events
-
-//highscoreButton.addEventListener("click", displayHighScores); 
-//resetButton.addEventListener("click", resetGame); 
 
 //Reload the page when the reset button is clicked.
 resetButton.addEventListener("click", function() {
