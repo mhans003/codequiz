@@ -19,11 +19,11 @@
 }
 
 .correct {
-    color: rgba(38,133,38,0.7); 
+    color: rgba(38,133,38,0.9); 
 }
 
 .incorrect {
-    color: rgba(250,70,70,0.7); 
+    color: rgba(250,70,70,0.9); 
 }
 
 #timer {
