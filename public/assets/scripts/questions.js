@@ -567,6 +567,42 @@ const questionSet = [
         option3: "d. The return keyword and curly brackets can always be omitted.",
         answer: "c. They aren't hoisted and must be defined before use.",
         optionNumber: 4
+    },
+    {
+        question: "The code ['sample'].__proto__ will access...",
+        option0: "a. Array.prototype",
+        option1: "b. Object.prototype",
+        option2: "c. String.prototype",
+        option3: "d. null",
+        answer: "a. Array.prototype",
+        optionNumber: 4
+    },
+    {
+        question: "The function expression var foo = function(){ alert('hello') } can NOT be...",
+        option0: "a. defined",
+        option1: "b. referenced using foo",
+        option2: "c. invoked using foo()",
+        option3: "d. hoisted",
+        answer: "d. hoisted",
+        optionNumber: 4
+    },
+    {
+        question: "Which is a COMPARISON operator that requires equal value AND equal type?",
+        option0: "a. =",
+        option1: "b. ==",
+        option2: "c. ===",
+        option3: "d. !=",
+        answer: "c. ===",
+        optionNumber: 4
+    },
+    {
+        question: "The symbols ? and : (used in conjunction with three operands) constitute the...",
+        option0: "a. switch statement",
+        option1: "b. ternary operator",
+        option2: "c. increment operator",
+        option3: "d. modulus",
+        answer: "b. ternary operator",
+        optionNumber: 4
     }
 ];
 
