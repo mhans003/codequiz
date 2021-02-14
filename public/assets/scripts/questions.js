@@ -549,6 +549,24 @@ const questionSet = [
         option3: "d. Fetch gets response data with data property while Axios requires json() function",
         answer: "d. Fetch gets response data with data property while Axios requires json() function",
         optionNumber: 4
+    },
+    {
+        question: "An Immediately Invoked Function Expression...",
+        option0: "a. runs as soon as it is defined",
+        option1: "b. runs immediately but cannot return a single value",
+        option2: "c. cannot be anonymous",
+        option3: "d. are always hoisted before other functions",
+        answer: "a. runs as soon as it is defined",
+        optionNumber: 4
+    },
+    {
+        question: "Which of the following is true about arrow functions?",
+        option0: "a. They are optimal for using 'this' and to define object methods.",
+        option1: "b. They should not be declared with const.",
+        option2: "c. They aren't hoisted and must be defined before use.",
+        option3: "d. The return keyword and curly brackets can always be omitted.",
+        answer: "c. They aren't hoisted and must be defined before use.",
+        optionNumber: 4
     }
 ];
 
