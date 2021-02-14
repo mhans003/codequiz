@@ -252,11 +252,12 @@ function displayFinalScore() {
     let finalCorrect = document.createElement("p"); 
     let finalIncorrect = document.createElement("p"); 
     let finalScore = document.createElement("p"); 
-    finalCorrect.classList.add("correct"); 
-    finalIncorrect.classList.add("incorrect"); 
+    finalCorrect.classList.add("correct", "score-output"); 
+    finalIncorrect.classList.add("incorrect", "score-output"); 
     finalCorrect.innerHTML = `Final Correct: ${totalCorrect}`; 
     finalIncorrect.innerHTML = `Final Incorrect: ${totalIncorrect}`; 
     finalScore.innerHTML = `Final Score: ${totalCorrect - totalIncorrect}`; 
+    finalScore.classList.add("score-output");
     finalCorrect.style.animation = "popout 0.5s";
     finalIncorrect.style.animation = "popout 0.5s";
     finalScore.style.animation = "popout 0.5s";
@@ -275,13 +276,13 @@ function displayFinalScore() {
 
     formGroupDiv.classList.add("form-group"); 
 
-    nameInput.classList.add("form-control"); 
+    nameInput.classList.add("form-control", "form-control-lg"); 
     nameInput.setAttribute("type", "text"); 
     nameInput.setAttribute("id", "input-name"); 
-    nameInput.setAttribute("placeholder", "Enter Your Name"); 
+    nameInput.setAttribute("placeholder", "Enter Name"); 
     nameInput.style.animation = "popout 0.5s";
 
-    submitButton.classList.add("btn", "btn-primary", "btn-lg"); 
+    submitButton.classList.add("btn", "btn-primary", "btn-lg", "py-3", "px-5"); 
     submitButton.setAttribute("type", "button");  
     submitButton.setAttribute("data-toggle", "modal"); 
     submitButton.setAttribute("data-target", "#scoreSubmittedModal"); 

@@ -121,6 +121,10 @@ button {
     margin-right: auto; 
 }
 
+.score-output {
+    font-size: 150%;
+}
+
 /*Media Queries and Animation Definitions*/
 
 @media screen and (max-width: 767px) {
@@ -138,6 +142,10 @@ button {
 @media screen and (max-width: 345px) {
     .navbar-brand {
         font-size: 1.2rem; 
+    }
+
+    .score-output {
+        font-size: 100%;
     }
 }
 
