@@ -495,6 +495,60 @@ const questionSet = [
         option3: "d. invoking",
         answer: "a. hoisting",
         optionNumber: 4
+    },
+    {
+        question: "What is the default string representation of a JavaScript object?",
+        option0: "a. '[object String]'",
+        option1: "b. '[object Object]'",
+        option2: "c. 'stringify({})'",
+        option3: "d. 'stringify(Object)'",
+        answer: "b. '[object Object]'",
+        optionNumber: 4
+    },
+    {
+        question: "JavaScript objects are essentially hashtables of name-value pairs where the names(keys) are...",
+        option0: "a. null",
+        option1: "b. linked lists",
+        option2: "c. integers",
+        option3: "d. strings",
+        answer: "d. strings",
+        optionNumber: 4
+    },
+    {
+        question: "What is found down the 'end' of the object prototype chain?",
+        option0: "a. []",
+        option1: "b. {}",
+        option2: "c. null",
+        option3: "d. 0",
+        answer: "c. null",
+        optionNumber: 4
+    },
+    {
+        question: "A function along with its surrounding state can be referred to in combination as a(n)...",
+        option0: "a. closure",
+        option1: "b. async function",
+        option2: "c. anonymous function",
+        option3: "d. global state",
+        answer: "a. closure",
+        optionNumber: 4
+    },
+    {
+        question: "The Fetch API would be used to...",
+        option0: "a. embed an external stylesheet",
+        option1: "b. make HTTP requests",
+        option2: "c. receive requests from a client",
+        option3: "d. query a database",
+        answer: "b. make HTTP requests",
+        optionNumber: 4
+    },
+    {
+        question: "Axios is different from Fetch for the following reasons. Which is NOT true?",
+        option0: "a. Fetch sends 'body' while Axios sends 'data'",
+        option1: "b. Fetch needs to use JSON.stringify while Axios doesn't",
+        option2: "c. Fetch response contains an ok property while Axios doesn't",
+        option3: "d. Fetch gets response data with data property while Axios requires json() function",
+        answer: "d. Fetch gets response data with data property while Axios requires json() function",
+        optionNumber: 4
     }
 ];
 
