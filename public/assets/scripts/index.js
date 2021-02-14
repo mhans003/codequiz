@@ -6,11 +6,12 @@ const correctScore = document.querySelector("#correct");
 const incorrectScore = document.querySelector("#incorrect"); 
 const colon = document.querySelectorAll(".colon"); 
 const highscoreButton = document.querySelector("#highscore-button")
-//const highscoreOutput = document.querySelector("#highscore-output"); 
 const submitScoreModal = document.querySelector("#submitscore-modalbody"); 
 const submitScoreHeading = document.querySelector("#scoreSubmittedModalLabel"); 
 const resetButton = document.querySelector("#reset-button"); 
 const chime = document.querySelector("#chime"); 
+const scoresContainer = document.querySelector("#scores");
+const timerAndScoresContainer = document.querySelector("#stats-wrapper");
 
 //Timer Variables 
 //Set a number of 1/100 seconds.
@@ -42,8 +43,6 @@ function setUpTimer() {
     //Set the remaining time initially to the starting time.
     remainingTime = startTime; 
 
-    //Display the timer. 
-    timerVar.style.display = "initial";
     colon.forEach((colon) => {
         colon.style.display = "initial"; 
     });
@@ -120,8 +119,9 @@ function endTimer() {
 //GAME FUNCTIONS
 
 function startGame() {
-    //Start the game by hiding the start button and setting up the timer.
+    //Start the game by hiding the start button and setting up the timer/showing scores tally.
     startButton.style.display = "none";
+    timerAndScoresContainer.style.display = "block";
     setUpTimer(); 
     
     //Generate the first question. 
@@ -230,8 +230,8 @@ function checkAnswer(event) {
 
 function updateScore() {
     //Display the current score. 
-    correctScore.innerHTML = `<i class="fas fa-thumbs-up"></i>: ${totalCorrect}`; 
-    incorrectScore.innerHTML = `<i class="fas fa-thumbs-down"></i>: ${totalIncorrect}`; 
+    correctScore.innerHTML = `<i class="fas fa-thumbs-up"></i> ${totalCorrect}`; 
+    incorrectScore.innerHTML = `<i class="fas fa-thumbs-down"></i> ${totalIncorrect}`; 
 }
 
 function displayFinalScore() {
@@ -338,15 +338,13 @@ function init() {
     //Reset/initialize score values.
     totalCorrect = 0; 
     totalIncorrect = 0; 
-    correctScore.innerHTML = "<i class='fas fa-thumbs-up'></i>: --"; 
-    incorrectScore.innerHTML = "<i class='fas fa-thumbs-down'></i>: --"; 
+    correctScore.innerHTML = "<i class='fas fa-thumbs-up'></i> --"; 
+    incorrectScore.innerHTML = "<i class='fas fa-thumbs-down'></i> --"; 
 
     //Shuffle the questions and reset the index to 0.
     shuffleQuestions(questionSet); 
     currentQuestion = 0; 
 
-    //Keep the timer hidden.
-    timerVar.style.display = "none";
     colon.forEach((colon) => {
         colon.style.display = "none"; 
     });
@@ -356,6 +354,7 @@ function init() {
     contentContainer.innerHTML = '<button id="start-timer" class="btn btn-primary btn-lg" display="initial">Start Timer <i class="far fa-clock"></i></button>';
     startButton = document.querySelector("#start-timer");
     startButton.addEventListener("click", startGame);
+    timerAndScoresContainer.style.display = "none";
 }
 
 //Reset the game by calling the init function. 

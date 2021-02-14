@@ -1,38 +1,36 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand mx-auto" href="#">JavaScript Quiz {<i id="javascript-icon" class="fab fa-js-square"></i>}</a>
+<nav class="navbar navbar-expand-md navbar-light bg-light py-5">
+    <a class="navbar-brand mx-auto ml-md-4" href="#">JavaScript Quiz {<i id="javascript-icon" class="fab fa-js-square"></i>}</a>
     <nav class="navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto">
-            <li class="nav-item mx-auto mr-md-5">
-                <div class="">
-                    <button id="highscore-button" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#scoreModal">High Scores</button>
-                </div>
-            </li>
+        <ul class="navbar-nav ml-auto mr-md-5">
             <li class="nav-item mx-auto">
-                <div id="scores" class="">      
-                    <span id="correct" class="correct"><i class="fas fa-thumbs-up"></i>: --</span>
-                    <span id="incorrect" class="incorrect"><i class="fas fa-thumbs-down"></i>: --</span>     
-                </div>
-            </li>
-            <li class="nav-item mx-auto ml-md-5">
-                <div id="timer" class="">
-                    <span id="min"></span>
-                    <span class="colon">:</span>
-                    <span id="sec"></span>
-                    <span class="colon">:</span>
-                    <span id="hundredthsec"></span>
+                <div class="">
+                    <button id="highscore-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#scoreModal">High Scores</button>
                 </div>
             </li>
         </ul>
     </nav>
 </nav>
 
-<div id="main-container" class="container text-center">
-    <button type="button" id="instructions-button" class="btn btn-secondary btn-sm mb-3" data-toggle="modal" data-target="#instructionsModal">Instructions <i class="fas fa-info-circle"></i></button>
-    <div id="content-container" class="container">
-
+<div id="stats-wrapper" class="py-5">
+    <div id="timer" class="text-center">
+        <span id="min"></span>
+        <span class="colon">:</span>
+        <span id="sec"></span>
+        <span class="colon">:</span>
+        <span id="hundredthsec"></span>
     </div>
-    <div id="question-box" class="container">  
 
+    <div id="scores" class="text-center">      
+        <span id="correct" class="correct"><i class="fas fa-thumbs-up"></i> --</span>
+        <span id="incorrect" class="incorrect"><i class="fas fa-thumbs-down"></i> --</span>     
+    </div>
+</div>
+
+<div id="main-container" class="container text-center">
+    <button type="button" id="instructions-button" class="btn btn-secondary my-3" data-toggle="modal" data-target="#instructionsModal">Instructions <i class="fas fa-info-circle"></i></button>
+    <div id="content-container" class="container">
+    </div>
+    <div id="question-box" class="container mb-5">  
     </div>
     <button type="button" id="reset-button" class="btn btn-secondary btn-lg">RESET <i class="fas fa-undo-alt"></i></button>
 </div>

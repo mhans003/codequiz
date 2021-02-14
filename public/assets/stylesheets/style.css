@@ -10,7 +10,7 @@
 }
 
 .navbar-brand {
-    font-size: 1.5rem; 
+    font-size: 2.5rem; 
     color: rgba(50,50,100,1.0) !important; 
 }
 
@@ -26,9 +26,17 @@
     color: rgba(250,70,70,0.7); 
 }
 
+#stats-wrapper {
+    background-color: rgba(247, 183, 49,0.05);
+}
+
 #timer {
     font-family: 'Source Code Pro', monospace;
+    font-size: 175%;
+}
 
+#scores {
+    font-size: 150%;
 }
 
 /*Button Styles*/
@@ -54,29 +62,27 @@ button {
 
 /*Content Styles*/
 
-#main-container {
-    margin-top: 5%; 
-}
-
 .question {
-    font-size: 1.2rem; 
+    font-size: 1.5rem; 
 
     animation: popout 0.5s;
     -webkit-animation: popout 0.5s;
 }
 
 .answer-option, .answer-option:active, .answer-option:focus {
+    font-size: 125%;
     border-radius: 5px; 
     background-color: rgba(100,100,150,1.0); 
     color: #fff; 
     border: 1px solid rgba(100,100,150,1.0); 
     margin-top: 20px; 
     margin-bottom: 20px; 
-    max-width: 600px; 
+    max-width: 700px; 
     margin-left: auto; 
     margin-right: auto; 
     text-align: left; 
-    padding: 10px; 
+    padding: 20px; 
+    word-wrap: break-word;
 
     box-shadow: 5px 5px 5px rgba(200,200,200,1.0);
 
@@ -123,9 +129,27 @@ button {
     }
 }
 
-@media screen and (max-width: 305px) {
+@media screen and (max-width: 500px) {
+    .navbar-brand {
+        font-size: 1.6rem; 
+    }
+}
+
+@media screen and (max-width: 345px) {
     .navbar-brand {
         font-size: 1.2rem; 
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .answer-option {
+        font-size: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .question {
+        font-size: 1.0rem;
     }
 }
 
