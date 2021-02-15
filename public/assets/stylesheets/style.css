@@ -2,6 +2,17 @@
     font-family: 'Fira Mono', monospace;
 }
 
+/*Body*/
+
+.landing-wrapper {
+    background-image: url("../images/code.jpeg");
+    background-size: cover;
+}
+
+.dark-overlay {
+    background-color: rgba(245,249,255,0.96);
+}
+
 /*Navbar Styles*/
 
 .navbar {
@@ -27,7 +38,7 @@
 }
 
 #stats-wrapper {
-    background-color: rgba(247, 183, 49,0.05);
+    background-color: rgba(247, 183, 49,0.15);
 }
 
 #timer {
