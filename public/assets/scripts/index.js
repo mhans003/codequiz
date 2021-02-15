@@ -119,6 +119,10 @@ function endTimer() {
 //GAME FUNCTIONS
 
 function startGame() {
+    //Ensure that answers don't overlap background image.
+    document.querySelector(".landing-wrapper").style.height = 'initial';
+    document.querySelector(".dark-overlay").style.height = 'initial';
+    
     //Start the game by hiding the start button and setting up the timer/showing scores tally.
     startButton.style.display = "none";
     timerAndScoresContainer.style.display = "block";
