@@ -41,10 +41,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <section class="modal-header">
-                <h5 class="modal-title" id="scoreModalLabel">High Scores</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h3 class="modal-title" id="scoreModalLabel">High Scores</h3>
             </section>
             <div class="modal-body">
                 <!--<p id="highscore-output"></p>-->
@@ -53,6 +50,9 @@
                         <li>{{dataValues.name}}: {{dataValues.score}}</li>
                     {{/each}}
                 </ol>
+                <button type="button" class="btn btn-primary btn-lg btn-block mt-4" data-dismiss="modal" aria-label="Close">
+                    Got It <i class="fa fa-check ml-1"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -63,13 +63,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <section class="modal-header">
-                <h5 class="modal-title" id="scoreSubmittedModalLabel">Success!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h3 class="modal-title" id="scoreSubmittedModalLabel">Success!</h3>
             </section>
-            <div class="modal-body">
+            <div class="modal-body text-center">
                 <h5 id="submitscore-modalbody">Score Saved!</h5>
+                <button type="button" class="btn btn-primary btn-lg btn-block mt-4" data-dismiss="modal" aria-label="Close">
+                    Got It <i class="fa fa-check ml-1"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -80,10 +80,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <section class="modal-header">
-                <h5 class="modal-title" id="instructionsModalLabel">Instructions <i class="fas fa-info-circle"></i></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h4 class="modal-title" id="instructionsModalLabel">Instructions <i class="fas fa-info-circle"></i></h4>
             </section>
             <div class="modal-body">
                 <p>
@@ -97,6 +94,9 @@
                     At the end of the game, you have the option of submitting your score.
                     The number of incorrect answers will be deducted from your final score.
                 </p>
+                <button type="button" class="btn btn-primary btn-lg btn-block mt-4" data-dismiss="modal" aria-label="Close">
+                    Got It <i class="fa fa-check ml-1"></i>
+                </button>
             </div>
         </div>
     </div>

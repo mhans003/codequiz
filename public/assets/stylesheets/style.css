@@ -141,6 +141,10 @@ button {
     font-size: 150%;
 }
 
+.modal-header {
+    background-color: rgba(247, 183, 49,0.15);
+}
+
 /*Media Queries and Animation Definitions*/
 
 @media screen and (max-width: 767px) {
