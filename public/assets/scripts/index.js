@@ -122,7 +122,7 @@ function startGame() {
     //Ensure that answers don't overlap background image.
     document.querySelector(".landing-wrapper").style.height = 'initial';
     document.querySelector(".dark-overlay").style.height = 'initial';
-    
+
     //Start the game by hiding the start button and setting up the timer/showing scores tally.
     startButton.style.display = "none";
     timerAndScoresContainer.style.display = "block";
@@ -290,6 +290,9 @@ function displayFinalScore() {
     submitButton.setAttribute("type", "button");  
     submitButton.setAttribute("data-toggle", "modal"); 
     submitButton.setAttribute("data-target", "#scoreSubmittedModal"); 
+    //Set the name of the game (used for routing to the correct POST route when submitting score)
+    let gameName = document.getElementById("game-name").innerText;
+    submitButton.setAttribute("game", gameName);
     submitButton.innerHTML = "Submit"; 
  
     formGroupDiv.appendChild(nameInput); 
@@ -319,8 +322,22 @@ function displayFinalScore() {
                 score: totalCorrect - totalIncorrect
             }
 
+            //Determine which POST route to send to.
+            let route;
+            switch(gameName) {
+                case "JavaScript Quiz":
+                    route = "/";
+                    break;
+                case "Algorithms Quiz":
+                    route = "/algorithms";
+                    break;
+                default:
+                    route = "#";
+                    break;
+            }
+
             //Send request to post new score. 
-            $.ajax("/", {
+            $.ajax(route, {
                 type: "POST",
                 data: scoreData
             }).then(

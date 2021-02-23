@@ -35,6 +35,10 @@ html, body {
     color: rgba(247, 183, 49, 1.0); 
 }
 
+#algorithms-icon {
+    color: rgba(247, 183, 49, 1.0); 
+}
+
 .correct {
     color: rgba(38,133,38,0.7); 
 }
