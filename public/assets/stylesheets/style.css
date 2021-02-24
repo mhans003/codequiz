@@ -149,6 +149,10 @@ button {
     background-color: rgba(247, 183, 49,0.15);
 }
 
+.game-link {
+    color: rgba(100,100,150); 
+}
+
 /*Media Queries and Animation Definitions*/
 
 @media screen and (max-width: 767px) {
