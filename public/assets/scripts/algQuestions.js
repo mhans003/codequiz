@@ -146,7 +146,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Which of the following is considered the worst Big-O complexity?",
+        question: "Which of the following is considered the worst Big-O complexity compared to the others?",
         option0: "a. O(n^2)",
         option1: "b. O(n log(n))",
         option2: "c. O(n)",
@@ -155,12 +155,30 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Which of the following is considered the best Big-O complexity?",
+        question: "Which of the following is considered the worst Big-O complexity compared to the others?",
+        option0: "a. O(log(n))",
+        option1: "b. O(n^2)",
+        option2: "c. O(2^n)",
+        option3: "d. O(n!)",
+        answer: "d. O(n!)",
+        optionNumber: 4
+    },
+    {
+        question: "Which of the following is considered the best Big-O complexity compared to the others?",
         option0: "a. O(n^2)",
         option1: "b. O(n log(n))",
         option2: "c. O(n)",
         option3: "d. O(1)",
         answer: "d. O(1)",
+        optionNumber: 4
+    },
+    {
+        question: "Which of the following is considered the best Big-O complexity compared to the others?",
+        option0: "a. O(log(n))",
+        option1: "b. O(n^2)",
+        option2: "c. O(2^n)",
+        option3: "d. O(n!)",
+        answer: "a. O(log(n))",
         optionNumber: 4
     },
     {
@@ -188,6 +206,87 @@ const questionSet = [
         option2: "c. In singly-linked lists, only one node can contain a connection; In doubly-linked lists, any node can contain a connection.",
         option3: "d. Singly-linked list nodes can contain only one property; Doubly-linked list nodes can contain two properties.",
         answer: "b. In singly-linked lists, each node connects to the next; In doubly-linked lists, nodes connect to the next and previous node(s).",
+        optionNumber: 4
+    },
+    {
+        question: "What is the average Big-O time complexity for access, search, insertion, and deletion in a Binary Search Tree?",
+        option0: "a. O(1)",
+        option1: "b. O(log(n))",
+        option2: "c. O(n log(n))",
+        option3: "d. O(n)",
+        answer: "b. O(log(n))",
+        optionNumber: 4
+    },
+    {
+        question: "What is the average Big-O time complexity for accessing and searching in stacks and queues?",
+        option0: "a. O(1)",
+        option1: "b. O(log(n))",
+        option2: "c. O(n log(n))",
+        option3: "d. O(n)",
+        answer: "d. O(n)",
+        optionNumber: 4
+    },
+    {
+        question: "What is the average Big-O time complexity for insertion and deletion in stacks and queues?",
+        option0: "a. O(1)",
+        option1: "b. O(log(n))",
+        option2: "c. O(n log(n))",
+        option3: "d. O(n)",
+        answer: "a. O(1)",
+        optionNumber: 4
+    },
+    {
+        question: "What is the average Big-O time complexity for accessing and searching in linked lists?",
+        option0: "a. O(1)",
+        option1: "b. O(log(n))",
+        option2: "c. O(n log(n))",
+        option3: "d. O(n)",
+        answer: "d. O(n)",
+        optionNumber: 4
+    },
+    {
+        question: "What is the average Big-O time complexity for insertion and deletion in linked lists?",
+        option0: "a. O(1)",
+        option1: "b. O(log(n))",
+        option2: "c. O(n log(n))",
+        option3: "d. O(n)",
+        answer: "a. O(1)",
+        optionNumber: 4
+    },
+    {
+        question: "Radix sort has an average Big-O time complexity of...",
+        option0: "a. O(n)",
+        option1: "b. O(n^2)",
+        option2: "c. O(n + k)",
+        option3: "d. O(nk)",
+        answer: "d. O(nk)",
+        optionNumber: 4
+    },
+    {
+        question: "To implement a binary search on an array of integers, the data should be...",
+        option0: "a. randomized",
+        option1: "b. deleted",
+        option2: "c. sorted",
+        option3: "d. moved into an object",
+        answer: "c. sorted",
+        optionNumber: 4
+    },
+    {
+        question: "On average, a linear search on an array of integers will have a Big-O time complexity of...",
+        option0: "a. O(n^2) - Every element must be compared to every other.",
+        option1: "b. O(n) - Every element is searched until it is found.",
+        option2: "c. O(log(n)) - The portion of the array searched is halved each iteration.",
+        option3: "d. O(n log(n)) - Every element in each halved portion is compared to every other element.",
+        answer: "b. O(n) - Every element is searched until it is found.",
+        optionNumber: 4
+    },
+    {
+        question: "On average, a binary search on an array of integers will have a Big-O time complexity of...",
+        option0: "a. O(n^2) - Every element must be compared to every other.",
+        option1: "b. O(n) - Every element is searched until it is found.",
+        option2: "c. O(log(n)) - The portion of the array searched is halved each iteration.",
+        option3: "d. O(n log(n)) - Every element in each halved portion is compared to every other element.",
+        answer: "c. O(log(n)) - The portion of the array searched is halved each iteration.",
         optionNumber: 4
     }
 ];
