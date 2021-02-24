@@ -92,12 +92,102 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "Which efficient sorting algorithm CAN potentially drop to time complexity O(n^2) in its worst case?",
-        option0: "a. Quick",
-        option1: "b. Merge",
-        option2: "c. Heap",
-        option3: "d. Radix",
-        answer: "a. Quick",
+        question: "Which sorting algorithm will likely consume more memory (higher space complexity) than the others?",
+        option0: "a. Bubble",
+        option1: "b. Insertion",
+        option2: "c. Selection",
+        option3: "d. Merge",
+        answer: "d. Merge",
+        optionNumber: 4
+    },
+    {
+        question: "Which sorting algorithm does not require direct comparison between values stored in memory?",
+        option0: "a. Radix",
+        option1: "b. Selection",
+        option2: "c. Merge",
+        option3: "d. Bubble",
+        answer: "a. Radix",
+        optionNumber: 4
+    },
+    {
+        question: "On average, which data structure is most optimal (best time complexity) for searching?",
+        option0: "a. Queue",
+        option1: "b. Hash Table",
+        option2: "c. Stack",
+        option3: "d. Binary Search Tree",
+        answer: "b. Hash Table",
+        optionNumber: 4
+    },
+    {
+        question: "Which data structure is known for having 'FIFO' method/structure for storing/removing data?",
+        option0: "a. Stack",
+        option1: "b. Queue",
+        option2: "c. Singly-Linked List",
+        option3: "d. Doubly-Linked List",
+        answer: "b. Queue",
+        optionNumber: 4
+    },
+    {
+        question: "Which data structure is known for having 'LIFO' method/structure for storing/removing data?",
+        option0: "a. Stack",
+        option1: "b. Queue",
+        option2: "c. Singly-Linked List",
+        option3: "d. Doubly-Linked List",
+        answer: "a. Stack",
+        optionNumber: 4
+    },
+    {
+        question: "As far as average time complexity goes, a standard array is best suited for...",
+        option0: "a. Access",
+        option1: "b. Search",
+        option2: "c. Insertion",
+        option3: "d. Deletion",
+        answer: "a. Access",
+        optionNumber: 4
+    },
+    {
+        question: "Which of the following is considered the worst Big-O complexity?",
+        option0: "a. O(n^2)",
+        option1: "b. O(n log(n))",
+        option2: "c. O(n)",
+        option3: "d. O(1)",
+        answer: "a. O(n^2)",
+        optionNumber: 4
+    },
+    {
+        question: "Which of the following is considered the best Big-O complexity?",
+        option0: "a. O(n^2)",
+        option1: "b. O(n log(n))",
+        option2: "c. O(n)",
+        option3: "d. O(1)",
+        answer: "d. O(1)",
+        optionNumber: 4
+    },
+    {
+        question: "Which Big-O complexity is worse than O(n^2)?",
+        option0: "a. O(1)",
+        option1: "b. O(n log(n))",
+        option2: "c. O(log(n))",
+        option3: "d. O(n!)",
+        answer: "d. O(n!)",
+        optionNumber: 4
+    },
+    {
+        question: "Which is NOT a property of a Binary Heap?",
+        option0: "a. Each node/element has at most two children",
+        option1: "b. There must be ordering (greater/less) between parents and children",
+        option2: "c. There must be ordering (greater/less) between siblings",
+        option3: "d. Can be Max (descending order) or Min (ascending order)",
+        answer: "c. There must be ordering (greater/less) between siblings",
+        optionNumber: 4
+    },
+    {
+        question: "What is a key difference between singly-linked lists and doubly-linked lists?",
+        option0: "a. In singly-linked lists, one node is connected to the others; In doubly-linked lists, two nodes are connected to the others.",
+        option1: "b. In singly-linked lists, each node connects to the next; In doubly-linked lists, nodes connect to the next and previous node(s).",
+        option2: "c. In singly-linked lists, only one node can contain a connection; In doubly-linked lists, any node can contain a connection.",
+        option3: "d. Singly-linked list nodes can contain only one property; Doubly-linked list nodes can contain two properties.",
+        answer: "b. In singly-linked lists, each node connects to the next; In doubly-linked lists, nodes connect to the next and previous node(s).",
         optionNumber: 4
     }
 ];
