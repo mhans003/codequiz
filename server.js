@@ -27,7 +27,7 @@ const routes = require("./routes/html-routes.js");
 app.use(routes); 
   
 //Sync database and start server. 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({force: true}).then(() => {
     http.createServer(app).listen(app.get('port'), () => {
         console.log('Express server listening on port ' + app.get('port'));
     });
