@@ -13,6 +13,9 @@ if (process.env.DATABASE_URL) {
   //If the application is running on Heroku, use Postgres. 
   sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect:  'postgres',
+    dialectOptions: {
+      "ssl": true
+    },
     protocol: 'postgres',
     port:     process.env.PORT,
     host:     process.env.HOST,
