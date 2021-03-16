@@ -236,7 +236,7 @@ const questionSet = [
         optionNumber: 4
     },
     {
-        question: "What is the average Big-O time complexity for accessing and searching in linked lists?",
+        question: "What is the average Big-O time complexity for accessing and searching in a linked list?",
         option0: "a. O(1)",
         option1: "b. O(log(n))",
         option2: "c. O(n log(n))",
