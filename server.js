@@ -19,7 +19,8 @@ app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //Set up port and public directory. 
-app.set('port', process.env.PORT || 3000);
+//app.set('port', process.env.PORT || 3000);
+const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Require and initialize routes. 
@@ -28,7 +29,12 @@ app.use(routes);
   
 //Sync database and start server. 
 db.sequelize.sync().then(() => {
+    /*
     http.createServer(app).listen(app.get('port'), () => {
         console.log('Express server listening on port ' + app.get('port'));
+    });
+    */
+    app.listen(PORT, () => {
+        console.log(`Server listening on PORT ${PORT}`);
     });
 });
