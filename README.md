@@ -10,22 +10,18 @@
 
 ## Description 
 
-This Node Express application is a timed JavaScript quiz game that stores high scores using MySQL and/or LocalStorage. 
+This Node Express application is a timed JavaScript quiz game that stores high scores using Mongoose/MongoDB. 
+
+*As of 4/13, this application now uses Mongoose(MongoDB) instead of Sequelize(MySQL)*
 
 The game initiates when the player presses the start button. The player has 90 seconds to answer as many JavaScript-related questions correctly as possible. Answering incorrectly results in a loss of time. When the game is over, the user has the option to store a name and the high score in the game's high scores list. 
 
 The program ensures that the questions are shuffled upon each iteration of gameplay.
 
-## Installation
-
-After repository is cloned to the local machine:
-1) Config.json file (development environment) must be updated to reflect local machine.
-2) Using MySQL Workbench, running init.sql initiates required database. 
-
 ## Features
 
 * Node.js application with Express Router. 
-* MySQL/Sequelize used to store/retrieve high scores. 
+* MongoDB/Mongoose used to store/retrieve high scores. 
 * Express Handlebars used to render content and pass data to HTML.
 * Responsive to screen sizes across devices. 
 * Incorporates Bootstrap utilities including container, modal, buttons, and navbar. 
