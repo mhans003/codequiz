@@ -1,40 +1,45 @@
 //Configure Express and require important dependencies. 
 const express = require("express"); 
-const handlebars = require("express-handlebars"); 
+const Handlebars = require("handlebars");
+const expressHandlebars = require("express-handlebars"); 
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 const app = express(); 
-
 require("dotenv").config(); 
 
-const http = require("http"); 
 const path = require("path"); 
-
-const db = require("./models"); 
 
 //Set up the Express App to handle data parsing. 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//Set up Express Handlebars. 
-app.engine("handlebars", handlebars({ defaultLayout: "main" }));
+//Set up Express Handlebars
+app.engine("handlebars", expressHandlebars({ 
+    //Revert to default behavior to allow templates to access object property values.
+    handlebars: allowInsecurePrototypeAccess(Handlebars)
+}));
 app.set("view engine", "handlebars");
 
 //Set up port and public directory. 
-//app.set('port', process.env.PORT || 3000);
 const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Configure Mongoose.
+const mongoose = require("mongoose");
+mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://localhost/quizgame-mh", 
+    { 
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false
+    }
+);
 
 //Require and initialize routes. 
 const routes = require("./routes/html-routes.js"); 
 app.use(routes); 
   
-//Sync database and start server. 
-db.sequelize.sync().then(() => {
-    /*
-    http.createServer(app).listen(app.get('port'), () => {
-        console.log('Express server listening on port ' + app.get('port'));
-    });
-    */
-    app.listen(PORT, () => {
-        console.log(`Server listening on PORT ${PORT}`);
-    });
+//Start server. 
+app.listen(PORT, () => {
+    console.log(`Server listening on PORT ${PORT}`);
 });
