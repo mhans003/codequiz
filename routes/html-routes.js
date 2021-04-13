@@ -4,8 +4,8 @@ const express = require("express");
 const router = express.Router(); 
 
 //Require models
-const Score = require("../models/Score");
-const AlgScore = require("../models/AlgScore");
+const Score = require("../models/score");
+const AlgScore = require("../models/algScore");
 
 router.get("/", async function(request, response) {
     const scores = await Score.find({}, {"name": 1, "score": 1, "_id": 0});

@@ -11,6 +11,6 @@ const AlgScoreSchema = new Schema({
 });
 
 //Create and export the AlgScore model.
-const AlgScore = mongoose.model("AlgScore", AlgScoreSchema);
+const AlgScore = mongoose.model("algScore", AlgScoreSchema);
 
 module.exports = AlgScore;
