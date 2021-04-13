@@ -1,41 +1,34 @@
-const path = require("path"); 
+//const path = require("path"); 
 const express = require("express"); 
 
 const router = express.Router(); 
 
-//Require Score model. 
-const db = require("../models"); 
-const { Score } = db; 
-const { AlgScore } = db;
+//Require models
+const Score = require("../models/Score");
+const AlgScore = require("../models/AlgScore");
 
-router.get("/", function(request, response) {
-    //Get all scores when the page loads in order to display high scores. 
-    Score.findAll().then(scores => {
+router.get("/", async function(request, response) {
+    const scores = await Score.find({}, {"name": 1, "score": 1, "_id": 0});
 
-        //Sort the scores array by score from greatest to least. 
-        scores.sort(function(a,b) {
-            return b.dataValues.score - a.dataValues.score; 
-        }); 
-
-        //Render the main page with the retrieved scores. 
-        response.render("index", { scores:scores });  
+    //Sort the scores array by score from greatest to least. 
+    scores.sort(function(a,b) {
+        return b.score - a.score; 
     }); 
-    
+
+    //Render the main page with the retrieved scores. 
+    response.render("index", { scores:scores });  
 }); 
 
-router.get("/algorithms", function(request, response) {
-    //Get all scores when the page loads in order to display high scores. 
-    AlgScore.findAll().then(scores => {
+router.get("/algorithms", async function(request, response) {
+    const scores = await AlgScore.find({}, {"name": 1, "score": 1, "_id": 0});
 
-        //Sort the scores array by score from greatest to least. 
-        scores.sort(function(a,b) {
-            return b.dataValues.score - a.dataValues.score; 
-        }); 
-
-        //Render the main page with the retrieved scores. 
-        response.render("alg_index", { scores:scores });  
+    //Sort the scores array by score from greatest to least. 
+    scores.sort(function(a,b) {
+        return b.score - a.score; 
     }); 
-    
+
+    //Render the main page with the retrieved scores. 
+    response.render("alg_index", { scores:scores });    
 }); 
 
 router.post("/", function(request, response) {
