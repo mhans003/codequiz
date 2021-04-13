@@ -1,8 +1,16 @@
-module.exports = function(sequelize, DataTypes) {
-    const Score = sequelize.define("Score", {
-        name: DataTypes.STRING,
-        score: DataTypes.INTEGER
-    }); 
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-    return Score; 
-}; 
+const ScoreSchema = new Schema({
+    name: {
+        type: String
+    },
+    score: {
+        type: Number
+    }
+});
+
+//Create and export the Score model.
+const Score = mongoose.model("Score", ScoreSchema);
+
+module.exports = Score;

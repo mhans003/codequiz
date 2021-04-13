@@ -1,1 +1,0 @@
-CREATE DATABASE javascript_quiz_MH; 
